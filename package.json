@@ -1,7 +1,7 @@
 {
   "name": "catapulta-verify",
   "version": "0.1.0",
-  "module": "index.ts",
+  "author": "@kartojal <david@web3ops.co> (https://catapulta.sh/)",
   "main": "./out/index.mjs",
   "files": [
     "out/index.mjs"
@@ -9,6 +9,7 @@
   "bin": {
     "catapulta-verifier": "./out/index.mjs"
   },
+  "repository": "github:catapulta-sh/verifier",
   "devDependencies": {
     "@types/bluebird": "^3.5.42",
     "@types/chalk": "^2.2.0",
@@ -25,5 +26,11 @@
   "scripts": {
     "build": "bun build ./src/index.ts --outfile=out/index.mjs   --target node",
     "postbuild": "bunx rexreplace '^(#!.+\\n)?' '$1import { createRequire as createImportMetaRequire } from \"module\"; import.meta.require ||= (id) => createImportMetaRequire(import.meta.url)(id);\\n' -GM out/index.mjs"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/catapulta-sh/verifier/issues",
+    "email": "david@web3ops.co"
+  },
+  "homepage": "https://github.com/catapulta-sh/verifier#readme",
+  "license": "MIT"
 }
