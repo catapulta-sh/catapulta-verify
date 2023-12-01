@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { loadJson } from './utils/json';
 import { exit } from "process";
 import { existsSync } from 'fs';
