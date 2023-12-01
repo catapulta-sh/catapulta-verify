@@ -1,0 +1,29 @@
+{
+  "name": "catapulta-verify",
+  "version": "0.1.0",
+  "module": "index.ts",
+  "main": "./out/index.mjs",
+  "files": [
+    "out/index.mjs"
+  ],
+  "bin": {
+    "catapulta-verifier": "./out/index.mjs"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.42",
+    "@types/chalk": "^2.2.0",
+    "bluebird": "^3.7.2",
+    "bun-types": "latest",
+    "chalk": "^5.3.0",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.9.0",
+    "ts-command-line-args": "^2.5.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "bun build ./src/index.ts --outfile=out/index.mjs   --target node",
+    "postbuild": "bunx rexreplace '^(#!.+\\n)?' '$1import { createRequire as createImportMetaRequire } from \"module\"; import.meta.require ||= (id) => createImportMetaRequire(import.meta.url)(id);\\n' -GM out/index.mjs"
+  }
+}
