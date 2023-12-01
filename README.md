@@ -1,3 +1,5 @@
+![Catapulta Banner](https://github.com/catapulta-sh/.github/assets/11179847/252be2aa-7a89-44f1-98eb-aa647d0dc5f3)
+
 # catapulta-verify
 
 [![npm version](https://badge.fury.io/js/catapulta-verify.svg)](https://badge.fury.io/js/catapulta-verify)
