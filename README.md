@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/catapulta-verify.svg)](https://badge.fury.io/js/catapulta-verify)
 
-Alternative Foundry verifier for nested `forge script` deployments. Provide your broadcast JSON file, and the [Catapulta](catapulta.sh) verifier will check every TX for deployments to verify at Etherscan and compatible block explorers, without the need of passing constructor arguments
+Alternative Foundry verifier for nested `forge script` deployments. Provide your broadcast JSON file, and the [Catapulta](https://catapulta.sh?ref=lite) verifier will check every TX for deployments to verify at Etherscan and compatible block explorers, without the need of passing constructor arguments
 
 ## Usage
 
@@ -63,4 +63,4 @@ This results in simpler and shorter commands to broadcast and verify Forge scrip
 npx catapulta script 'scripts/Deploy.s.sol' --network sepolia
 ```
 
-A tool for deployers, by deployers. Check it out at [Catapulta.sh](https://catapulta.sh).
+A tool for deployers, by deployers. Check it out at [Catapulta.sh](https://catapulta.sh?ref=lite).
