@@ -55,6 +55,12 @@ This will generate a index.mjs file in /out directory, with all the dependencies
 
 This is the Lite open source version of the Catapulta deployment platform verifier.
 
-Catapulta aims to improve DevX for smart contracts deployments, allowing to deploy in +10 networks with zero config, automated verifications and collaborative deployment reports for both Foundry and Hardhat. This results in simpler and shorter commands to broadcast and verify Forge scripts deployments.
+Catapulta aims to improve DevX for smart contracts deployments, allowing to deploy in +10 networks with zero config, automated verifications and collaborative deployment reports for both Foundry and Hardhat.
+
+This results in simpler and shorter commands to broadcast and verify Forge scripts deployments:
+
+```
+npx catapulta script 'scripts/Deploy.s.sol' --network sepolia
+```
 
 A tool for deployers, by deployers. Check it out at [Catapulta.sh](https://catapulta.sh).
