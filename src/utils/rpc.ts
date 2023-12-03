@@ -11,7 +11,6 @@ export const getChainId = async (rpcUrl: string): Promise<number> => {
         })
         const response = await request.json();
 
-        console.log(response)
         if (response.error) {
             throw 'RPC.chainId.ResponseError'
         }
