@@ -19,7 +19,6 @@ export const getChainId = async (rpcUrl: string): Promise<number> => {
         }
         throw 'RPC.chainId.CantParse'
     } catch (error) {
-        console.log(error)
         console.log("[Error] Cant connect to RPC provider. Exiting.")
         process.exit(2)
     }
