@@ -1,6 +1,6 @@
 # catapulta-verify
 
-[![npm version](https://badge.fury.io/js/catapulta-verify.svg)](https://badge.fury.io/js/catapulta-verify)
+[![Telegram Group](https://img.shields.io/endpoint?color=neon&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fsolidity_deployers)](https://t.me/solidity_deployers) [![npm version](https://badge.fury.io/js/catapulta-verify.svg)](https://badge.fury.io/js/catapulta-verify)
 
 Alternative Foundry verifier for nested `forge script` deployments. Provide your broadcast JSON file, and the [Catapulta](catapulta.sh) verifier will check every TX for deployments to verify at Etherscan and compatible block explorers, without the need of passing constructor arguments
 

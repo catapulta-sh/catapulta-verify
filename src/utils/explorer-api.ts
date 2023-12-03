@@ -20,7 +20,6 @@ export const checkIfVerified = async (
     etherscanApi?: string,
     etherscanApiKey?: string
 ) => {
-    let contractABI;
     const params = {
         apikey: etherscanApiKey || ETHERSCAN_API_KEYS[chainId],
         address: deploymentAddress,
@@ -30,20 +29,19 @@ export const checkIfVerified = async (
 
     const formattedParams = new URLSearchParams(params).toString();
 
-    const request = await fetch(`${etherscanApi || ETHERSCAN_API_URL[chainId]}?${formattedParams}`);
+    try {
+        const request = await fetch(`${etherscanApi || ETHERSCAN_API_URL[chainId]}?${formattedParams}`);
 
-    const { status, result }: any = await request.json();
+        const { status, result }: any = await request.json();
 
-    if (status !== '0') {
-        try {
-            contractABI = JSON.parse(result);
-        } catch (e) {
-            console.log(`Couldn't parse the abi from ${deploymentAddress}`);
-            return;
+        if (status == '1') {
+            return true;
         }
+        return false;
+    } catch (error) {
+        console.error(error);
+        process.exit(2);
     }
-
-    return contractABI && contractABI !== '';
 };
 
 export const checkIfVisible = async (

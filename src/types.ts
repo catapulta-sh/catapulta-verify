@@ -54,13 +54,15 @@ export interface EtherscanVerification {
 }
 
 export enum Networks {
-    matic = 137,
+    polygon = 137,
     main = 1,
     arbitrum = 42161,
     avalanche = 43114,
+    avalancheFuji = 43113,
     optimism = 10,
     goerli = 5,
     sepolia = 11155111,
-    bsc_testnet = 97,
+    bsc = 56,
+    bscTestnet = 97,
     base = 8453,
 }

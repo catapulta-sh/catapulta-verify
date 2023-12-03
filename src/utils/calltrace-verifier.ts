@@ -1,7 +1,35 @@
 import Bluebird from "bluebird";
 import { checkIfVerified, checkVerificationStatus, submitVerification, waitTillVisible } from "./explorer-api";
 import { getSettingsByArtifact } from "./foundry-ffi";
-import { sleep } from "bun";
+import { JsonRpcProvider } from "ethers/providers";
+
+
+export const getTxInternalCalls = async (txHash: string, provider: JsonRpcProvider) => {
+    try {
+        const [trace]: any = await provider._send({
+            jsonrpc: '2.0',
+            id: 1,
+            method: 'debug_traceTransaction',
+            params: [
+                txHash,
+                {
+                    tracer: 'callTracer',
+                },
+            ],
+        });
+
+        if (!trace || trace.error) {
+            if (trace?.error?.message) console.error('RPC response:', trace.error.message);
+            console.error('[catapulta-verify] RPC does not support debug_traceTransaction. Exiting.')
+            process.exit(2);
+        }
+
+        return trace;
+    } catch (error) {
+        console.error('[catapulta-verify] RPC does not support debug_traceTransaction. Exiting.')
+        process.exit(2);
+    }
+}
 
 export const callTraceVerifier = async (
     call: any,
