@@ -1,5 +1,5 @@
-import Bluebird from "bluebird";
 import { ETHERSCAN_API_KEYS, ETHERSCAN_API_URL } from "../config";
+import { delay } from "./misc";
 
 export const submitVerification = async (verificationInfo: any, chainId: number, etherscanUrl?: string) => {
     const request = await fetch(etherscanUrl || ETHERSCAN_API_URL[chainId], {
@@ -59,7 +59,7 @@ export const checkIfVisible = async (
 
     const formattedParams = new URLSearchParams(params).toString();
 
-    await Bluebird.delay(100);
+    await delay(100);
     const request = await fetch(
         `${etherscanApiUrl || ETHERSCAN_API_URL[chainId]}?${formattedParams}`
     );
@@ -76,9 +76,8 @@ export const waitTillVisible = async (
     etherscanUrl?: string,
     etherscanApiKey?: string
 ): Promise<void> => {
-    let visible: Boolean = false;
-    const sleepTime = 1000 * 5;
-    let logged = false;
+    let visible, logged = false;
+
     while (!visible) {
         visible = await checkIfVisible(deploymentAddress, chainId, etherscanUrl, etherscanApiKey);
         if (!visible) {
@@ -86,7 +85,7 @@ export const waitTillVisible = async (
                 console.log('Waiting for on-chain settlement...');
                 logged = true;
             }
-            await Bluebird.delay(sleepTime)
+            await delay(5000)
         }
     }
 };

@@ -3,16 +3,13 @@
 import { loadJson } from './utils/json';
 import { exit } from "process";
 import { existsSync } from 'fs';
-import path from 'path';
 import dotenv from 'dotenv';
-import Bluebird from "bluebird";
-import { JsonRpcProvider } from "ethers/providers";
-import { callTraceVerifier, getTxInternalCalls } from "./utils/calltrace-verifier";
+import { callTraceVerifier } from "./utils/calltrace-verifier";
 import { DEFAULT_RPC_URLS, VERIFY_VERSION } from "./config";
 import { loadBuildInfo, loadArtifacts } from "./utils/foundry-ffi";
 import { args } from './cli-args';
 import chalk from 'chalk';
-import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
+import { getChainId, getTxInternalCalls } from './utils/rpc';
 
 dotenv.config();
 
@@ -39,12 +36,9 @@ const main = async () => {
     greets();
 
     const rpc = args.rpcUrl || DEFAULT_RPC_URLS[parsedRun.chain];
-    const provider = new JsonRpcProvider(rpc);
-    const chainId = parsedRun.chain;
+    const chainId = await getChainId(rpc);
 
     try {
-        const network = await provider._detectNetwork();
-        console.log('Network:', network.name);
         console.log('Chain Id:', chainId);
         console.log();
     } catch (err) {
@@ -56,8 +50,8 @@ const main = async () => {
     const artifacts = await loadArtifacts();
 
     console.log('\nAnalyzing deployment transactions...\n')
-    await Bluebird.each(parsedRun.transactions, async (tx: any, index) => {
-        const trace = await getTxInternalCalls(tx.hash, provider);
+    for (const tx of parsedRun.transactions) {
+        const trace = await getTxInternalCalls(tx.hash, rpc);
 
         try {
             await callTraceVerifier(
@@ -72,7 +66,7 @@ const main = async () => {
             console.error('[Verification Error]', error)
         }
 
-    });
+    };
     console.log('\n[catapulta-verify] Verification finished.')
     console.log('\n[catapulta-verify] Check out', chalk.green('catapulta.sh'), 'for zero config deployments, automated verifications and deployment reports for Foundry projects. ')
 };
