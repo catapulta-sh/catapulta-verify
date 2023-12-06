@@ -1,0 +1,12 @@
+name: CI
+on: [push]
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Setup Biome CLI
+        uses: biomejs/setup-biome@v1
+      - name: Run Biome
+        run: biome ci .
