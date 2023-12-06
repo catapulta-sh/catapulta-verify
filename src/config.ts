@@ -17,6 +17,7 @@ export const ETHERSCAN_API_KEYS: {
     [Networks.bsc]: process.env.ETHERSCAN_API_KEY_BSC || "",
     [Networks.bscTestnet]: process.env.ETHERSCAN_API_KEY_BSC_TESTNET || "",
     [Networks.base]: process.env.ETHERSCAN_API_KEY_BASE || "",
+    [Networks.metis]: process.env.ETHERSCAN_API_KEY_METIS || "",
 };
 
 export const ETHERSCAN_API_URL: {
@@ -33,6 +34,7 @@ export const ETHERSCAN_API_URL: {
     [Networks.bsc]: "https://api.bscscan.com/api",
     [Networks.bscTestnet]: "https://api-testnet.bscscan.com/api",
     [Networks.base]: "https://api.basescan.org/api",
+    [Networks.metis]: "https://api.routescan.io/v2/network/mainnet/evm/1088/etherscan",
 };
 
 export const DEFAULT_RPC_URLS: {
