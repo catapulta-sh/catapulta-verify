@@ -4,9 +4,12 @@ jobs:
   Lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - name: Setup Biome CLI
-        uses: biomejs/setup-biome@v1
-      - name: Run linter
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - uses: biomejs/setup-biome@v1
+      - name: Install dependencies
+        run: bun install
+      - name: Lint check
         run: biome ci .
+      - name: Build
+        run: bun run build
