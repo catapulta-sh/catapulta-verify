@@ -77,7 +77,7 @@ export const waitTillVisible = async (
     let visible = false;
     let logged = false;
 
-    while (!visible) {
+    while (!!!visible) {
         visible = await checkIfVisible(deploymentAddress, chainId, etherscanUrl, etherscanApiKey);
         if (!visible) {
             if (!logged) {
