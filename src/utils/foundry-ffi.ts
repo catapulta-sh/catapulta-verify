@@ -42,7 +42,7 @@ export const loadBuildInfo = async (parsedRun: BroadcastReport): Promise<any[]> 
     console.log("Compiling contracts with build info...");
 
     // Remove FOUNDRY_LIBRARIES from .env, due it could mutate bytecode of deployments with different compilation contexts, .env will be restored back at exit
-    execSync("cp .env .env.bk && sed -i.sedbak -r '/FOUNDRY_LIBRARIES/d' .env && rm .env.sedbak && sleep 3");
+    execSync("cp .env .env.bk && sed -i.sedbak -r '/FOUNDRY_LIBRARIES/d' .env && rm .env.sedbak && sleep 1");
 
     let forgeBuildCmd = "forge build --build-info --force";
 
