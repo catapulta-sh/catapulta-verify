@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import fs from "fs";
+import { readdirSync, statSync, existsSync } from "fs";
 import path from "path";
 import { ETHERSCAN_API_KEYS } from "../config.ts";
 import { BroadcastReport, EtherscanVerification } from "../types.ts";
@@ -8,13 +8,13 @@ import { loadJson } from "./json.ts";
 import { extractOneLicenseFromSourceFile } from "./license.ts";
 
 function recFindByExt(base: string, ext: string, prevFiles?: string[], prevResult?: any): string[] {
-    const files = prevFiles || fs.readdirSync(base);
+    const files = prevFiles || readdirSync(base);
     let result = prevResult || [];
 
     for (const file of files) {
         const newbase = path.join(base, file);
-        if (fs.statSync(newbase).isDirectory()) {
-            result = recFindByExt(newbase, ext, fs.readdirSync(newbase), result);
+        if (statSync(newbase).isDirectory()) {
+            result = recFindByExt(newbase, ext, readdirSync(newbase), result);
         } else {
             if (file.substr(-1 * (ext.length + 1)) === "." + ext) {
                 result.push(newbase);
@@ -42,7 +42,10 @@ export const loadBuildInfo = async (parsedRun: BroadcastReport): Promise<any[]> 
     console.log("Compiling contracts with build info...");
 
     // Remove FOUNDRY_LIBRARIES from .env, due it could mutate bytecode of deployments with different compilation contexts, .env will be restored back at exit
-    execSync("cp .env .env.bk && sed -i.sedbak -r '/FOUNDRY_LIBRARIES/d' .env && rm .env.sedbak && sleep 1");
+    const dotEnvExists = existsSync(".env");
+    if (dotEnvExists) {
+        execSync("cp .env .env.bk && sed -i.sedbak -r '/FOUNDRY_LIBRARIES/d' .env && rm .env.sedbak && sleep 1");
+    }
 
     let forgeBuildCmd = "forge build --build-info --force";
 
@@ -53,16 +56,18 @@ export const loadBuildInfo = async (parsedRun: BroadcastReport): Promise<any[]> 
     try {
         execSync(forgeBuildCmd, { stdio: "inherit" });
     } finally {
-        execSync("cp .env.bk .env && rm .env.bk", { stdio: "inherit" });
+        if (dotEnvExists) {
+            execSync("cp .env.bk .env && rm .env.bk", { stdio: "inherit" });
+        }
     }
 
     console.log("Compilation successful");
 
     const buildInfos: any[] = [];
 
-    const buildInfosInDir = fs
-        .readdirSync(path.join("out", "build-info"))
-        .filter((file) => path.extname(file) === ".json");
+    const buildInfosInDir = readdirSync(path.join("out", "build-info")).filter(
+        (file) => path.extname(file) === ".json",
+    );
 
     for (const file of buildInfosInDir) {
         buildInfos.push(await loadJson(path.join("out", "build-info", file)));
@@ -102,7 +107,7 @@ export const getSettingsByArtifact = async (
 
     const { contractName, contractInfo, contractPath } = <
         { contractName: string; contractInfo: any; contractPath: string }
-    >contractData;
+        >contractData;
     const licenseType = extractOneLicenseFromSourceFile(contractInfo.sources[contractPath].content);
 
     if (!licenseType) return;
