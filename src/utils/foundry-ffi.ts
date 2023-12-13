@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import { readdirSync, statSync, existsSync } from "fs";
+import { existsSync, readdirSync, statSync } from "fs";
 import path from "path";
 import { ETHERSCAN_API_KEYS } from "../config.ts";
 import { BroadcastReport, EtherscanVerification } from "../types.ts";
@@ -107,7 +107,7 @@ export const getSettingsByArtifact = async (
 
     const { contractName, contractInfo, contractPath } = <
         { contractName: string; contractInfo: any; contractPath: string }
-        >contractData;
+    >contractData;
     const licenseType = extractOneLicenseFromSourceFile(contractInfo.sources[contractPath].content);
 
     if (!licenseType) return;
