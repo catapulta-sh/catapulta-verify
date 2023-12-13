@@ -60,7 +60,7 @@ export const callTraceVerifier = async (
     console.log(`Verifying contract ${call.to}, with guid: ${guid}`);
 
     for (let i = 0; i < 30; i++) {
-        await delay(350);
+        await delay(1000);
         const { status, message } = await checkVerificationStatus(guid, chainId, etherscanUrl, etherscanApiKey);
 
         if (status !== 2) {
