@@ -66,4 +66,5 @@ export enum Networks {
     bscTestnet = 97,
     base = 8453,
     metis = 1088,
+    gnosis = 100,
 }
