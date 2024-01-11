@@ -67,4 +67,6 @@ export enum Networks {
     base = 8453,
     metis = 1088,
     gnosis = 100,
+    scroll = 534352,
+    zkevm = 1101,
 }

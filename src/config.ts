@@ -19,6 +19,8 @@ export const ETHERSCAN_API_KEYS: {
     [Networks.base]: process.env.ETHERSCAN_API_KEY_BASE || "",
     [Networks.metis]: process.env.ETHERSCAN_API_KEY_METIS || "",
     [Networks.gnosis]: process.env.ETHERSCAN_API_KEY_GNOSIS || "",
+    [Networks.scroll]: process.env.ETHERSCAN_API_KEY_SCROLL || "",
+    [Networks.zkevm]: process.env.ETHERSCAN_API_KEY_ZKEVM || "",
 };
 
 export const ETHERSCAN_API_URL: {
@@ -37,6 +39,8 @@ export const ETHERSCAN_API_URL: {
     [Networks.base]: "https://api.basescan.org/api",
     [Networks.metis]: "https://api.routescan.io/v2/network/mainnet/evm/1088/etherscan",
     [Networks.gnosis]: "https://api.gnosisscan.io/api",
+    [Networks.scroll]: "https://api.scrollscan.com/api",
+    [Networks.zkevm]: "https://api-zkevm.polygonscan.com/api",
 };
 
 export const DEFAULT_RPC_URLS: {
@@ -53,4 +57,6 @@ export const DEFAULT_RPC_URLS: {
     [Networks.bscTestnet]: process.env.RPC_BSC_TESTNET || "",
     [Networks.base]: process.env.RPC_BASE || "",
     [Networks.gnosis]: process.env.RPC_GNOSIS || "",
+    [Networks.scroll]: process.env.RPC_SCROLL || "",
+    [Networks.zkevm]: process.env.RPC_ZKEVM || "",
 };
