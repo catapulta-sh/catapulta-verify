@@ -1,7 +1,17 @@
 name: Test and lint
-on: [push]
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      
 jobs:
-  Build:
+  Lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -9,7 +19,7 @@ jobs:
       - uses: biomejs/setup-biome@v1
       - name: Lint check
         run: biome ci .
-  Lint:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
