@@ -1,6 +1,6 @@
 {
     "name": "catapulta-verify",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "@kartojal <david@web3ops.co> (https://catapulta.sh/)",
     "repository": "github:catapulta-sh/catapulta-verify",
     "main": "./out/index.mjs",
