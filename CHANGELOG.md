@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/catapulta-sh/catapulta-verify/compare/v1.0.3...v1.0.4) (2024-02-05)
+
+
+### Bug Fixes
+
+* rename bsc to bnb ([#16](https://github.com/catapulta-sh/catapulta-verify/issues/16)) ([31e3332](https://github.com/catapulta-sh/catapulta-verify/commit/31e3332d41033937c651a3cb54e3f5934e88b28d))
+
 ## [1.0.3](https://github.com/catapulta-sh/catapulta-verify/compare/v1.0.2...v1.0.3) (2024-02-05)
 
 
