@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/catapulta-sh/catapulta-verify/compare/v1.0.0...v1.0.1) (2024-02-05)
+
+
+### Miscellaneous Chores
+
+* release 1.0.1 ([356b2b7](https://github.com/catapulta-sh/catapulta-verify/commit/356b2b72e9e492b0067ec7ac79bb5f925ef25509))
+
 ## 1.0.0 (2024-02-05)
 
 
