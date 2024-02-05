@@ -1,18 +1,18 @@
-import { createClient, http, Chain, Client, Transport } from "viem";
+import { http, Chain, Client, Transport, createClient } from "viem";
 import {
-    polygon,
-    mainnet,
-    avalanche,
     arbitrum,
-    goerli,
-    optimism,
+    avalanche,
+    base,
     bsc,
     bscTestnet,
-    sepolia,
     gnosis,
-    base,
-    scroll,
+    goerli,
+    mainnet,
+    optimism,
+    polygon,
     polygonZkEvm,
+    scroll,
+    sepolia,
 } from "viem/chains";
 import { Networks } from "./types";
 

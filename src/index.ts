@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 import { existsSync } from "fs";
-import { getChainId } from "viem/actions";
 import chalk from "chalk";
 import "dotenv/config";
 import { exit } from "process";
+import { getChainId } from "viem/actions";
 import { args } from "./cli-args";
 import { VERIFY_VERSION, getClient } from "./config";
 import { callTraceVerifier } from "./utils/calltrace-verifier";
