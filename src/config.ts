@@ -1,3 +1,19 @@
+import { createClient, http, Chain, Client, Transport } from "viem";
+import {
+    polygon,
+    mainnet,
+    avalanche,
+    arbitrum,
+    goerli,
+    optimism,
+    bsc,
+    bscTestnet,
+    sepolia,
+    gnosis,
+    base,
+    scroll,
+    polygonZkEvm,
+} from "viem/chains";
 import { Networks } from "./types";
 
 const packageJson = require("../package.json");
@@ -26,37 +42,58 @@ export const ETHERSCAN_API_KEYS: {
 export const ETHERSCAN_API_URL: {
     [key: string]: string;
 } = {
-    [Networks.polygon]: "https://api.polygonscan.com/api",
-    [Networks.main]: "https://api.etherscan.io/api",
-    [Networks.arbitrum]: "https://api.arbiscan.io/api",
     [Networks.avalanche]: "https://api.routescan.io/v2/network/mainnet/evm/43114/etherscan",
     [Networks.avalancheFuji]: "https://api.routescan.io/v2/network/testnet/evm/43113/etherscan",
-    [Networks.optimism]: "https://api-optimistic.etherscan.io/api",
-    [Networks.goerli]: "https://api-goerli.etherscan.io/api",
-    [Networks.sepolia]: "https://api-sepolia.etherscan.io/api",
-    [Networks.bnb]: "https://api.bscscan.com/api",
-    [Networks.bnbTestnet]: "https://api-testnet.bscscan.com/api",
-    [Networks.base]: "https://api.basescan.org/api",
     [Networks.metis]: "https://api.routescan.io/v2/network/mainnet/evm/1088/etherscan",
-    [Networks.gnosis]: "https://api.gnosisscan.io/api",
-    [Networks.scroll]: "https://api.scrollscan.com/api",
-    [Networks.zkevm]: "https://api-zkevm.polygonscan.com/api",
 };
 
 export const DEFAULT_RPC_URLS: {
-    [key: string]: string;
+    [key: string]: string | undefined;
 } = {
-    [Networks.polygon]: process.env.RPC_POLYGON || "",
-    [Networks.main]: process.env.RPC_MAINNET || "",
-    [Networks.arbitrum]: process.env.RPC_ARBITRUM || "",
-    [Networks.avalanche]: process.env.RPC_AVALANCHE || "",
-    [Networks.optimism]: process.env.RPC_OPTIMISM || "",
-    [Networks.goerli]: process.env.RPC_GOERLI || "",
-    [Networks.sepolia]: process.env.RPC_SEPOLIA || "",
-    [Networks.bnb]: process.env.RPC_BNB || "",
-    [Networks.bnbTestnet]: process.env.RPC_BNB_TESTNET || "",
-    [Networks.base]: process.env.RPC_BASE || "",
-    [Networks.gnosis]: process.env.RPC_GNOSIS || "",
-    [Networks.scroll]: process.env.RPC_SCROLL || "",
-    [Networks.zkevm]: process.env.RPC_ZKEVM || "",
+    [Networks.polygon]: process.env.RPC_POLYGON,
+    [Networks.main]: process.env.RPC_MAINNET,
+    [Networks.arbitrum]: process.env.RPC_ARBITRUM,
+    [Networks.avalanche]: process.env.RPC_AVALANCHE,
+    [Networks.optimism]: process.env.RPC_OPTIMISM,
+    [Networks.goerli]: process.env.RPC_GOERLI,
+    [Networks.sepolia]: process.env.RPC_SEPOLIA,
+    [Networks.bnb]: process.env.RPC_BNB,
+    [Networks.bnbTestnet]: process.env.RPC_BNB_TESTNET,
+    [Networks.base]: process.env.RPC_BASE,
+    [Networks.gnosis]: process.env.RPC_GNOSIS,
+    [Networks.scroll]: process.env.RPC_SCROLL,
+    [Networks.zkevm]: process.env.RPC_ZKEVM,
 };
+
+export const CHAINS: {
+    [key: string]: Chain;
+} = {
+    [Networks.polygon]: polygon,
+    [Networks.main]: mainnet,
+    [Networks.arbitrum]: arbitrum,
+    [Networks.avalanche]: avalanche,
+    [Networks.optimism]: optimism,
+    [Networks.goerli]: goerli,
+    [Networks.sepolia]: sepolia,
+    [Networks.bnb]: bsc,
+    [Networks.bnbTestnet]: bscTestnet,
+    [Networks.base]: base,
+    [Networks.gnosis]: gnosis,
+    [Networks.scroll]: scroll,
+    [Networks.zkevm]: polygonZkEvm,
+};
+
+export function getClient({ chainId, rpcUrl, apiUrl }: { chainId: string; rpcUrl?: string; apiUrl?: string }) {
+    return createClient({
+        transport: http(rpcUrl || DEFAULT_RPC_URLS[chainId]),
+        chain: {
+            ...CHAINS[chainId],
+            blockExplorers: {
+                default: {
+                    ...(CHAINS[chainId].blockExplorers?.default as any),
+                    apiUrl: apiUrl || ETHERSCAN_API_URL[chainId] || CHAINS[chainId].blockExplorers?.default.apiUrl,
+                },
+            },
+        },
+    });
+}

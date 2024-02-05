@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 
 import { existsSync } from "fs";
+import { getChainId } from "viem/actions";
 import chalk from "chalk";
 import "dotenv/config";
 import { exit } from "process";
 import { args } from "./cli-args";
-import { DEFAULT_RPC_URLS, VERIFY_VERSION } from "./config";
+import { VERIFY_VERSION, getClient } from "./config";
 import { callTraceVerifier } from "./utils/calltrace-verifier";
 import { loadArtifacts, loadBuildInfo } from "./utils/foundry-ffi";
 import { loadJson } from "./utils/json";
-import { getChainId, getTxInternalCalls } from "./utils/rpc";
+import { getTxInternalCalls } from "./utils/rpc";
 
 // prevent dotenv env to affect child_process.execSync environment
 delete process.env.FOUNDRY_LIBRARIES;
@@ -32,14 +33,14 @@ const main = async () => {
 
     greets();
 
-    const rpc = args.rpcUrl || DEFAULT_RPC_URLS[parsedRun.chain];
-    const chainId = await getChainId(rpc);
+    const client = getClient({ chainId: parsedRun.chain, rpcUrl: args.rpcUrl, apiUrl: args.etherscanUrl });
+    const chainId = await getChainId(client);
 
     try {
         console.log("Chain Id:", chainId);
         console.log();
     } catch (err) {
-        console.log("Could not connect to RPC endpoint", rpc);
+        console.log("Could not connect to RPC endpoint", client.transport.url);
         process.exit(2);
     }
 
@@ -48,17 +49,10 @@ const main = async () => {
 
     console.log("\nAnalyzing deployment transactions...\n");
     for (const tx of parsedRun.transactions) {
-        const trace = await getTxInternalCalls(tx.hash, rpc);
+        const trace = await getTxInternalCalls(tx.hash, client.transport.url as string);
 
         try {
-            await callTraceVerifier(
-                trace.result,
-                chainId,
-                artifacts,
-                buildInfos,
-                args.etherscanUrl,
-                args.etherscanApiKey,
-            );
+            await callTraceVerifier(trace.result, chainId, artifacts, buildInfos, client, args.etherscanApiKey);
         } catch (error) {
             console.error("[Verification Error]", error);
         }

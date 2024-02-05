@@ -1,8 +1,9 @@
+import { Client } from "viem";
 import { ETHERSCAN_API_KEYS, ETHERSCAN_API_URL } from "../config";
 import { delay } from "./misc";
 
-export const submitVerification = async (verificationInfo: any, chainId: number, etherscanUrl?: string) => {
-    const request = await fetch(etherscanUrl || ETHERSCAN_API_URL[chainId], {
+export const submitVerification = async (verificationInfo: any, client: Client) => {
+    const request = await fetch(client.transport.url, {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -14,14 +15,9 @@ export const submitVerification = async (verificationInfo: any, chainId: number,
 };
 
 // checks if the smart contract is already verified before trying to verify it
-export const checkIfVerified = async (
-    deploymentAddress: string,
-    chainId: number,
-    etherscanApi?: string,
-    etherscanApiKey?: string,
-) => {
+export const checkIfVerified = async (deploymentAddress: string, client: Client, etherscanApiKey?: string) => {
     const params = {
-        apikey: etherscanApiKey || ETHERSCAN_API_KEYS[chainId],
+        apikey: etherscanApiKey || ETHERSCAN_API_KEYS[client.chain!.id],
         address: deploymentAddress,
         module: "contract",
         action: "getabi",
@@ -30,7 +26,7 @@ export const checkIfVerified = async (
     const formattedParams = new URLSearchParams(params).toString();
 
     try {
-        const request = await fetch(`${etherscanApi || ETHERSCAN_API_URL[chainId]}?${formattedParams}`);
+        const request = await fetch(`${client.chain?.blockExplorers?.default.apiUrl}?${formattedParams}`);
 
         const { status, result }: any = await request.json();
 
@@ -44,14 +40,9 @@ export const checkIfVerified = async (
     }
 };
 
-export const checkIfVisible = async (
-    deploymentAddress: string,
-    chainId: number,
-    etherscanApiUrl?: string,
-    etherscanApiKey?: string,
-) => {
+export const checkIfVisible = async (deploymentAddress: string, client: Client, etherscanApiKey?: string) => {
     const params = {
-        apikey: etherscanApiKey || ETHERSCAN_API_KEYS[chainId],
+        apikey: etherscanApiKey || ETHERSCAN_API_KEYS[client.chain!.id],
         contractaddresses: deploymentAddress,
         module: "contract",
         action: "getcontractcreation",
@@ -60,7 +51,7 @@ export const checkIfVisible = async (
     const formattedParams = new URLSearchParams(params).toString();
 
     await delay(100);
-    const request = await fetch(`${etherscanApiUrl || ETHERSCAN_API_URL[chainId]}?${formattedParams}`);
+    const request = await fetch(`${client.chain?.blockExplorers?.default.apiUrl}?${formattedParams}`);
     const { result }: any = await request.json();
     return Boolean(result);
 };
@@ -70,15 +61,14 @@ export const checkIfVisible = async (
 */
 export const waitTillVisible = async (
     deploymentAddress: string,
-    chainId: number,
-    etherscanUrl?: string,
+    client: Client,
     etherscanApiKey?: string,
 ): Promise<void> => {
     let visible = false;
     let logged = false;
 
     while (!visible) {
-        visible = await checkIfVisible(deploymentAddress, chainId, etherscanUrl, etherscanApiKey);
+        visible = await checkIfVisible(deploymentAddress, client, etherscanApiKey);
         if (!visible) {
             if (!logged) {
                 console.log("Waiting for on-chain settlement...");
@@ -97,15 +87,14 @@ export const waitTillVisible = async (
 */
 export const checkVerificationStatus = async (
     GUID: string,
-    chainId: number,
-    etherscanUrl?: string,
+    client: Client,
     apiKey?: string,
 ): Promise<{
     status: number;
     message: string;
 }> => {
     const params = {
-        apikey: apiKey || ETHERSCAN_API_KEYS[chainId],
+        apikey: apiKey || ETHERSCAN_API_KEYS[client.chain!.id],
         guid: GUID,
         module: "contract",
         action: "checkverifystatus",
@@ -114,7 +103,7 @@ export const checkVerificationStatus = async (
     const formattedParams = new URLSearchParams(params).toString();
 
     try {
-        const request = await fetch(`${etherscanUrl || ETHERSCAN_API_URL[chainId]}?${formattedParams}`);
+        const request = await fetch(`${client.chain?.blockExplorers?.default.apiUrl}?${formattedParams}`);
 
         const { status, result }: any = await request.json();
         if (result === "Pending in queue") {

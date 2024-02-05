@@ -15,7 +15,8 @@
                 "noDelete": "off"
             },
             "style": {
-                "useTemplate": "off"
+                "useTemplate": "off",
+                "noNonNullAssertion": "off"
             }
         }
     },
