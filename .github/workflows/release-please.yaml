@@ -15,12 +15,10 @@ jobs:
     outputs:
         releaseCreated: ${{ steps.release.outputs.release_created }}
     steps:
-        - uses: google-github-actions/release-please-action@v3
+        - uses: google-github-actions/release-please-action@v4
           id: release
           with:
             release-type: node
-            package-name: catapulta-verify
-            pull-request-header: "I have created a release"
 
   release-node:
     runs-on: ubuntu-latest
@@ -30,6 +28,10 @@ jobs:
     steps:
         - uses: actions/checkout@v4
         - uses: oven-sh/setup-bun@v1
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 20
+            registry-url: "https://registry.npmjs.org"
         - name: Install dependencies
           run: bun install
         - name: Build
