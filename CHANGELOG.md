@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/catapulta-sh/catapulta-verify/compare/v1.0.2...v1.0.3) (2024-02-05)
+
+
+### Bug Fixes
+
+* add node install step & resolve npm issues ([4c3159d](https://github.com/catapulta-sh/catapulta-verify/commit/4c3159da1b3d39abc117862e6f3247de879175a4))
+
 ## [1.0.2](https://github.com/catapulta-sh/catapulta-verify/compare/v1.0.1...v1.0.2) (2024-02-05)
 
 
