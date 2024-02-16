@@ -10,7 +10,7 @@ export const submitVerification = async (verificationInfo: any, chainId: number,
         body: new URLSearchParams(verificationInfo).toString(),
     };
     // etherscan is not super stable, therefore sometimes there are issues and for reporting it's useful to log the request
-    if (VERBOSE) console.log(params);
+    if (VERBOSE) console.log("etherscan request", JSON.stringify(params));
     const request = await fetch(etherscanUrl || ETHERSCAN_API_URL[chainId], params);
 
     return await request.json();
