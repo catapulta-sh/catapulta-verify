@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/catapulta-sh/catapulta-verify/compare/v1.0.4...v1.0.5) (2024-02-16)
+
+
+### Performance Improvements
+
+* skip building test & scripts ([#19](https://github.com/catapulta-sh/catapulta-verify/issues/19)) ([9c3fe19](https://github.com/catapulta-sh/catapulta-verify/commit/9c3fe19b00ba2e72cd91801364df8b9886bff1ea))
+
 ## [1.0.4](https://github.com/catapulta-sh/catapulta-verify/compare/v1.0.3...v1.0.4) (2024-02-05)
 
 
