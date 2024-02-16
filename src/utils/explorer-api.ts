@@ -1,14 +1,17 @@
-import { ETHERSCAN_API_KEYS, ETHERSCAN_API_URL } from "../config";
+import { ETHERSCAN_API_KEYS, ETHERSCAN_API_URL, VERBOSE } from "../config";
 import { delay } from "./misc";
 
 export const submitVerification = async (verificationInfo: any, chainId: number, etherscanUrl?: string) => {
-    const request = await fetch(etherscanUrl || ETHERSCAN_API_URL[chainId], {
+    const params = {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
         },
         body: new URLSearchParams(verificationInfo).toString(),
-    });
+    };
+    // etherscan is not super stable, therefore sometimes there are issues and for reporting it's useful to log the request
+    if (VERBOSE) console.log(params);
+    const request = await fetch(etherscanUrl || ETHERSCAN_API_URL[chainId], params);
 
     return await request.json();
 };

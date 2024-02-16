@@ -3,6 +3,8 @@ import { Networks } from "./types";
 const packageJson = require("../package.json");
 export const VERIFY_VERSION = packageJson.version;
 
+export const VERBOSE = !!process.env.VERBOSE;
+
 export const ETHERSCAN_API_KEYS: {
     [key: number]: string;
 } = {
