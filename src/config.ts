@@ -23,6 +23,7 @@ export const ETHERSCAN_API_KEYS: {
     [Networks.gnosis]: process.env.ETHERSCAN_API_KEY_GNOSIS || "",
     [Networks.scroll]: process.env.ETHERSCAN_API_KEY_SCROLL || "",
     [Networks.zkevm]: process.env.ETHERSCAN_API_KEY_ZKEVM || "",
+    [Networks.celo]: process.env.ETHERSCAN_API_KEY_CELO || "",
 };
 
 export const ETHERSCAN_API_URL: {
@@ -43,6 +44,7 @@ export const ETHERSCAN_API_URL: {
     [Networks.gnosis]: "https://api.gnosisscan.io/api",
     [Networks.scroll]: "https://api.scrollscan.com/api",
     [Networks.zkevm]: "https://api-zkevm.polygonscan.com/api",
+    [Networks.celo]: "https://api.celoscan.io/api"
 };
 
 export const DEFAULT_RPC_URLS: {
@@ -61,4 +63,5 @@ export const DEFAULT_RPC_URLS: {
     [Networks.gnosis]: process.env.RPC_GNOSIS || "",
     [Networks.scroll]: process.env.RPC_SCROLL || "",
     [Networks.zkevm]: process.env.RPC_ZKEVM || "",
+    [Networks.celo]: process.env.RPC_CELO || "",
 };
