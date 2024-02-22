@@ -44,7 +44,7 @@ export const ETHERSCAN_API_URL: {
     [Networks.gnosis]: "https://api.gnosisscan.io/api",
     [Networks.scroll]: "https://api.scrollscan.com/api",
     [Networks.zkevm]: "https://api-zkevm.polygonscan.com/api",
-    [Networks.celo]: "https://api.celoscan.io/api"
+    [Networks.celo]: "https://api.celoscan.io/api",
 };
 
 export const DEFAULT_RPC_URLS: {
