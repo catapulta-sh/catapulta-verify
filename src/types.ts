@@ -69,4 +69,5 @@ export enum Networks {
     gnosis = 100,
     scroll = 534352,
     zkevm = 1101,
+    celo = 42220,
 }
