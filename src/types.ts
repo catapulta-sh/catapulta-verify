@@ -62,8 +62,11 @@ export enum Networks {
     optimism = 10,
     goerli = 5,
     sepolia = 11155111,
-    bsc = 56,
-    bscTestnet = 97,
+    bnb = 56,
+    bnbTestnet = 97,
     base = 8453,
     metis = 1088,
+    gnosis = 100,
+    scroll = 534352,
+    zkevm = 1101,
 }

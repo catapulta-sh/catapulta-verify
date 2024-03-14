@@ -1,0 +1,45 @@
+name: Test and lint
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - uses: biomejs/setup-biome@v1
+      - name: Lint check
+        run: biome ci .
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
+      - name: Install dependencies
+        run: bun install
+      - name: Build
+        run: bun run build
+      # the following steps are only running for:
+      # - pull_requests (not pushes to master)
+      # - pull requests from contributors (not forks)  
+      - name: Alpha
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          bun i -g standard-version
+          standard-version --prerelease ${{ github.sha }} --skip.changelog --skip.commit --skip.tag
+          npm publish --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

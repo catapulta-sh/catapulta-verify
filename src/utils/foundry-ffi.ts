@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import { readdirSync, statSync, existsSync } from "fs";
+import { existsSync, readdirSync, statSync } from "fs";
 import path from "path";
 import { ETHERSCAN_API_KEYS } from "../config.ts";
 import { BroadcastReport, EtherscanVerification } from "../types.ts";
@@ -44,10 +44,10 @@ export const loadBuildInfo = async (parsedRun: BroadcastReport): Promise<any[]> 
     // Remove FOUNDRY_LIBRARIES from .env, due it could mutate bytecode of deployments with different compilation contexts, .env will be restored back at exit
     const dotEnvExists = existsSync(".env");
     if (dotEnvExists) {
-        execSync("cp .env .env.bk && sed -i.sedbak -r '/FOUNDRY_LIBRARIES/d' .env && rm .env.sedbak && sleep 3");
+        execSync("cp .env .env.bk && sed -i.sedbak -r '/FOUNDRY_LIBRARIES/d' .env && rm .env.sedbak && sleep 1");
     }
 
-    let forgeBuildCmd = "forge build --build-info";
+    let forgeBuildCmd = "forge build --skip test script --build-info";
 
     if (parsedRun?.libraries?.length) {
         forgeBuildCmd = `FOUNDRY_LIBRARIES="${parsedRun.libraries.join(",")}" ${forgeBuildCmd}`;

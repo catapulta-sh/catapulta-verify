@@ -3,6 +3,8 @@ import { Networks } from "./types";
 const packageJson = require("../package.json");
 export const VERIFY_VERSION = packageJson.version;
 
+export const VERBOSE = !!process.env.VERBOSE;
+
 export const ETHERSCAN_API_KEYS: {
     [key: number]: string;
 } = {
@@ -14,10 +16,13 @@ export const ETHERSCAN_API_KEYS: {
     [Networks.sepolia]: process.env.ETHERSCAN_API_KEY_SEPOLIA || "",
     [Networks.avalanche]: process.env.ETHERSCAN_API_KEY_AVALANCHE || "",
     [Networks.avalancheFuji]: process.env.ETHERSCAN_API_KEY_AVALANCHE_FUJI || "",
-    [Networks.bsc]: process.env.ETHERSCAN_API_KEY_BSC || "",
-    [Networks.bscTestnet]: process.env.ETHERSCAN_API_KEY_BSC_TESTNET || "",
+    [Networks.bnb]: process.env.ETHERSCAN_API_KEY_BNB || "",
+    [Networks.bnbTestnet]: process.env.ETHERSCAN_API_KEY_BNB_TESTNET || "",
     [Networks.base]: process.env.ETHERSCAN_API_KEY_BASE || "",
     [Networks.metis]: process.env.ETHERSCAN_API_KEY_METIS || "",
+    [Networks.gnosis]: process.env.ETHERSCAN_API_KEY_GNOSIS || "",
+    [Networks.scroll]: process.env.ETHERSCAN_API_KEY_SCROLL || "",
+    [Networks.zkevm]: process.env.ETHERSCAN_API_KEY_ZKEVM || "",
 };
 
 export const ETHERSCAN_API_URL: {
@@ -31,10 +36,13 @@ export const ETHERSCAN_API_URL: {
     [Networks.optimism]: "https://api-optimistic.etherscan.io/api",
     [Networks.goerli]: "https://api-goerli.etherscan.io/api",
     [Networks.sepolia]: "https://api-sepolia.etherscan.io/api",
-    [Networks.bsc]: "https://api.bscscan.com/api",
-    [Networks.bscTestnet]: "https://api-testnet.bscscan.com/api",
+    [Networks.bnb]: "https://api.bscscan.com/api",
+    [Networks.bnbTestnet]: "https://api-testnet.bscscan.com/api",
     [Networks.base]: "https://api.basescan.org/api",
     [Networks.metis]: "https://api.routescan.io/v2/network/mainnet/evm/1088/etherscan",
+    [Networks.gnosis]: "https://api.gnosisscan.io/api",
+    [Networks.scroll]: "https://api.scrollscan.com/api",
+    [Networks.zkevm]: "https://api-zkevm.polygonscan.com/api",
 };
 
 export const DEFAULT_RPC_URLS: {
@@ -47,7 +55,10 @@ export const DEFAULT_RPC_URLS: {
     [Networks.optimism]: process.env.RPC_OPTIMISM || "",
     [Networks.goerli]: process.env.RPC_GOERLI || "",
     [Networks.sepolia]: process.env.RPC_SEPOLIA || "",
-    [Networks.bsc]: process.env.RPC_BSC || "",
-    [Networks.bscTestnet]: process.env.RPC_BSC_TESTNET || "",
+    [Networks.bnb]: process.env.RPC_BNB || "",
+    [Networks.bnbTestnet]: process.env.RPC_BNB_TESTNET || "",
     [Networks.base]: process.env.RPC_BASE || "",
+    [Networks.gnosis]: process.env.RPC_GNOSIS || "",
+    [Networks.scroll]: process.env.RPC_SCROLL || "",
+    [Networks.zkevm]: process.env.RPC_ZKEVM || "",
 };

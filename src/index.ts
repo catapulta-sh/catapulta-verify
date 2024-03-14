@@ -2,7 +2,7 @@
 
 import { existsSync } from "fs";
 import chalk from "chalk";
-import dotenv from "dotenv";
+import "dotenv/config";
 import { exit } from "process";
 import { args } from "./cli-args";
 import { DEFAULT_RPC_URLS, VERIFY_VERSION } from "./config";
@@ -10,8 +10,6 @@ import { callTraceVerifier } from "./utils/calltrace-verifier";
 import { loadArtifacts, loadBuildInfo } from "./utils/foundry-ffi";
 import { loadJson } from "./utils/json";
 import { getChainId, getTxInternalCalls } from "./utils/rpc";
-
-dotenv.config();
 
 // prevent dotenv env to affect child_process.execSync environment
 delete process.env.FOUNDRY_LIBRARIES;
