@@ -1,8 +1,8 @@
-import { execSync } from "child_process";
-import { existsSync, readdirSync, statSync } from "fs";
-import path from "path";
+import { execSync } from "node:child_process";
+import { existsSync, readdirSync, statSync } from "node:fs";
+import path from "node:path";
 import { ETHERSCAN_API_KEYS } from "../config.ts";
-import { BroadcastReport, EtherscanVerification } from "../types.ts";
+import type { BroadcastReport, EtherscanVerification } from "../types.ts";
 import { getContractDataByArtifactAndBuildInfo, isBytecodeInArtifact, isBytecodeInBuildInfo } from "./bytecode.ts";
 import { loadJson } from "./json.ts";
 import { extractOneLicenseFromSourceFile } from "./license.ts";

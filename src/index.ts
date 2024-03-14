@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import { existsSync } from "fs";
+import { existsSync } from "node:fs";
+import { exit } from "node:process";
 import chalk from "chalk";
 import "dotenv/config";
-import { exit } from "process";
 import { args } from "./cli-args";
 import { DEFAULT_RPC_URLS, VERIFY_VERSION } from "./config";
 import { callTraceVerifier } from "./utils/calltrace-verifier";

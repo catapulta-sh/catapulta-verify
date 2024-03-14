@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
-      - uses: biomejs/setup-biome@v1
+      - uses: biomejs/setup-biome@v2
       - name: Lint check
         run: biome ci .
   Build:

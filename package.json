@@ -11,11 +11,9 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "out/index.mjs"
-    ],
+    "files": ["out/index.mjs"],
     "devDependencies": {
-        "@biomejs/biome": "1.4.1",
+        "@biomejs/biome": "1.6.1",
         "@types/chalk": "^2.2.0",
         "bun-types": "latest",
         "chalk": "^5.3.0",
