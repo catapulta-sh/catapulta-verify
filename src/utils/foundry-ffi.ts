@@ -1,8 +1,8 @@
-import { execSync } from "child_process";
-import { existsSync, readdirSync, statSync } from "fs";
-import path from "path";
+import { execSync } from "node:child_process";
+import { existsSync, readdirSync, statSync } from "node:fs";
+import path from "node:path";
 import { ETHERSCAN_API_KEYS } from "../config.ts";
-import { BroadcastReport, EtherscanVerification } from "../types.ts";
+import type { BroadcastReport, EtherscanVerification } from "../types.ts";
 import { getContractDataByArtifactAndBuildInfo, isBytecodeInArtifact, isBytecodeInBuildInfo } from "./bytecode.ts";
 import { loadJson } from "./json.ts";
 import { extractOneLicenseFromSourceFile } from "./license.ts";
@@ -47,7 +47,7 @@ export const loadBuildInfo = async (parsedRun: BroadcastReport): Promise<any[]> 
         execSync("cp .env .env.bk && sed -i.sedbak -r '/FOUNDRY_LIBRARIES/d' .env && rm .env.sedbak && sleep 1");
     }
 
-    let forgeBuildCmd = "forge build --skip test script --build-info --force";
+    let forgeBuildCmd = "forge build --skip test script --build-info";
 
     if (parsedRun?.libraries?.length) {
         forgeBuildCmd = `FOUNDRY_LIBRARIES="${parsedRun.libraries.join(",")}" ${forgeBuildCmd}`;

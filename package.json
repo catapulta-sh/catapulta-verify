@@ -11,9 +11,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "out/index.mjs"
-    ],
+    "files": ["out/index.mjs"],
     "devDependencies": {
         "@biomejs/biome": "1.4.1",
         "@types/chalk": "^2.2.0",

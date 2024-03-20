@@ -1,5 +1,5 @@
 import { parse } from "ts-command-line-args";
-import { InputParams } from "./types";
+import type { InputParams } from "./types";
 
 export const args = parse<InputParams>(
     {
