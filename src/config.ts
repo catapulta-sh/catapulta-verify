@@ -64,4 +64,5 @@ export const DEFAULT_RPC_URLS: {
     [Networks.scroll]: process.env.RPC_SCROLL || "",
     [Networks.zkevm]: process.env.RPC_ZKEVM || "",
     [Networks.celo]: process.env.RPC_CELO || "",
+    [Networks.metis]: process.env.RPC_METIS || "",
 };
