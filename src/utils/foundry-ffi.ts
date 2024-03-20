@@ -1,7 +1,6 @@
 import { execSync } from "node:child_process";
 import { existsSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
-import { ETHERSCAN_API_KEYS } from "../config.ts";
 import type { BroadcastReport, EtherscanVerification } from "../types.ts";
 import { getContractDataByArtifactAndBuildInfo, isBytecodeInArtifact, isBytecodeInBuildInfo } from "./bytecode.ts";
 import { loadJson } from "./json.ts";
@@ -115,7 +114,7 @@ export const getSettingsByArtifact = async (
     const rawParams = bytecodeAndParams.split(foundArtifact.bytecode.object)[1] || "";
 
     const metadata = foundArtifact.metadata;
-    settings.apikey = etherscanApiKey || ETHERSCAN_API_KEYS[chainId] || process.env.ETHERSCAN_API_KEY || "";
+    settings.apikey = etherscanApiKey || "";
     settings.module = "contract";
     settings.action = "verifysourcecode";
     settings.sourceCode = JSON.stringify(contractData.contractInfo);

@@ -22,7 +22,7 @@ export const args = parse<InputParams>(
             description:
                 "RPC URL to fetch transaction details, mandatory to support for debug_traceTransaction. You can use Alchemy or Quicknode providers if available.",
         },
-        etherscanUrl: {
+        explorerUrl: {
             type: String,
             optional: true,
             alias: "e",

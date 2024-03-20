@@ -7,7 +7,7 @@ export const callTraceVerifier = async (
     chainId: number,
     artifacts: any[],
     buildInfos: any[],
-    etherscanUrl?: string,
+    explorerUrl: string,
     etherscanApiKey?: string,
 ) => {
     const deployOpcodes = ["CREATE", "CREATE2"];
@@ -15,15 +15,15 @@ export const callTraceVerifier = async (
     // Perform nested call tracing verification in each internal call
     if (call.calls) {
         for (const c of call.calls) {
-            await callTraceVerifier(c, chainId, artifacts, buildInfos, etherscanUrl, etherscanApiKey);
+            await callTraceVerifier(c, chainId, artifacts, buildInfos, explorerUrl, etherscanApiKey);
         }
     }
 
     if (!deployOpcodes.includes(call.type)) return;
 
-    await waitTillVisible(call.to, Number(chainId), etherscanUrl, etherscanApiKey);
+    await waitTillVisible(call.to, explorerUrl, etherscanApiKey);
 
-    const verified = await checkIfVerified(call.to, Number(chainId), etherscanUrl, etherscanApiKey);
+    const verified = await checkIfVerified(call.to, explorerUrl, etherscanApiKey);
 
     if (verified) {
         console.log(`(${call.to}) is already verified, skipping.`);
@@ -46,11 +46,7 @@ export const callTraceVerifier = async (
         return;
     }
 
-    const {
-        result: guid,
-        message,
-        status,
-    }: any = await submitVerification(verificationReq, Number(chainId), etherscanUrl);
+    const { result: guid, message, status }: any = await submitVerification(verificationReq, explorerUrl);
 
     if (!status || guid.includes("Max rate limit reached")) {
         console.log(`Couldn't verify ${call.to} `, guid);
@@ -61,7 +57,7 @@ export const callTraceVerifier = async (
 
     for (let i = 0; i < 30; i++) {
         await delay(1000);
-        const { status, message } = await checkVerificationStatus(guid, chainId, etherscanUrl, etherscanApiKey);
+        const { status, message } = await checkVerificationStatus(guid, explorerUrl, etherscanApiKey);
 
         if (status !== 2) {
             console.log(message);
