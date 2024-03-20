@@ -4,7 +4,6 @@ import { delay } from "./misc";
 
 export const callTraceVerifier = async (
     call: any,
-    chainId: number,
     artifacts: any[],
     buildInfos: any[],
     explorerUrl: string,
@@ -15,7 +14,7 @@ export const callTraceVerifier = async (
     // Perform nested call tracing verification in each internal call
     if (call.calls) {
         for (const c of call.calls) {
-            await callTraceVerifier(c, chainId, artifacts, buildInfos, explorerUrl, etherscanApiKey);
+            await callTraceVerifier(c, artifacts, buildInfos, explorerUrl, etherscanApiKey);
         }
     }
 
@@ -33,14 +32,7 @@ export const callTraceVerifier = async (
     // if the tx has subdeployments get the deployed bytecode from the last deployment in order to
     // compare the bytecode and deployed bytecode strings, resulting in the constructor params
 
-    const verificationReq = await getSettingsByArtifact(
-        Number(chainId),
-        artifacts,
-        buildInfos,
-        call.input,
-        call.to,
-        etherscanApiKey,
-    );
+    const verificationReq = await getSettingsByArtifact(artifacts, buildInfos, call.input, call.to, etherscanApiKey);
     if (!verificationReq) {
         console.log("Couldn't get the params for the verification request");
         return;

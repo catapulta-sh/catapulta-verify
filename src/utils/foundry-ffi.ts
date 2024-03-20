@@ -76,7 +76,6 @@ export const loadBuildInfo = async (parsedRun: BroadcastReport): Promise<any[]> 
 };
 
 export const getSettingsByArtifact = async (
-    chainId: number,
     artifacts: any[],
     buildInfos: any[],
     bytecodeAndParams: string,
