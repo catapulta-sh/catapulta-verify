@@ -33,7 +33,7 @@ export const NETWORK_CONFIGS: Record<string, NetworkConfig> = {
     [Networks.avalanche]: {
         RPC: process.env.RPC_AVALANCHE || "",
         explorers: [
-            { API_URL: "https://snowscan.xyz/api", API_KEY: process.env.ETHERSCAN_API_KEY_AVALANCHE || "" },
+            { API_URL: "https://api.snowscan.xyz/api", API_KEY: process.env.ETHERSCAN_API_KEY_AVALANCHE || "" },
             { API_URL: "https://api.routescan.io/v2/network/mainnet/evm/43114/etherscan" },
         ],
     },
