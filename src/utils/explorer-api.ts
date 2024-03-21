@@ -1,4 +1,4 @@
-import { VERBOSE } from "../config";
+import { ExplorerConfig, VERBOSE } from "../config";
 import { delay } from "./misc";
 
 export const submitVerification = async (verificationInfo: any, explorerUrl: string) => {
@@ -17,9 +17,9 @@ export const submitVerification = async (verificationInfo: any, explorerUrl: str
 };
 
 // checks if the smart contract is already verified before trying to verify it
-export const checkIfVerified = async (deploymentAddress: string, etherscanApi: string, etherscanApiKey?: string) => {
+export const checkIfVerified = async (deploymentAddress: string, explorer: ExplorerConfig) => {
     const params = {
-        apikey: etherscanApiKey || "",
+        apikey: explorer.API_KEY || "",
         address: deploymentAddress,
         module: "contract",
         action: "getabi",
@@ -28,7 +28,7 @@ export const checkIfVerified = async (deploymentAddress: string, etherscanApi: s
     const formattedParams = new URLSearchParams(params).toString();
 
     try {
-        const request = await fetch(`${etherscanApi}?${formattedParams}`);
+        const request = await fetch(`${explorer.API_URL}?${formattedParams}`);
 
         const { status, result }: any = await request.json();
 
@@ -42,9 +42,9 @@ export const checkIfVerified = async (deploymentAddress: string, etherscanApi: s
     }
 };
 
-export const checkIfVisible = async (deploymentAddress: string, etherscanApiUrl: string, etherscanApiKey?: string) => {
+export const checkIfVisible = async (deploymentAddress: string, explorer: ExplorerConfig) => {
     const params = {
-        apikey: etherscanApiKey || "",
+        apikey: explorer.API_KEY || "",
         contractaddresses: deploymentAddress,
         module: "contract",
         action: "getcontractcreation",
@@ -53,7 +53,7 @@ export const checkIfVisible = async (deploymentAddress: string, etherscanApiUrl:
     const formattedParams = new URLSearchParams(params).toString();
 
     await delay(100);
-    const request = await fetch(`${etherscanApiUrl}?${formattedParams}`);
+    const request = await fetch(`${explorer.API_URL}?${formattedParams}`);
     const { result }: any = await request.json();
     return Boolean(result);
 };
@@ -61,16 +61,12 @@ export const checkIfVisible = async (deploymentAddress: string, etherscanApiUrl:
 /*
    Etherscan needs time to process the deployment, depending of the network load could take more or less time.
 */
-export const waitTillVisible = async (
-    deploymentAddress: string,
-    explorerUrl: string,
-    etherscanApiKey?: string,
-): Promise<void> => {
+export const waitTillVisible = async (deploymentAddress: string, explorer: ExplorerConfig): Promise<void> => {
     let visible = false;
     let logged = false;
 
     while (!visible) {
-        visible = await checkIfVisible(deploymentAddress, explorerUrl, etherscanApiKey);
+        visible = await checkIfVisible(deploymentAddress, explorer);
         if (!visible) {
             if (!logged) {
                 console.log("Waiting for on-chain settlement...");
@@ -89,14 +85,13 @@ export const waitTillVisible = async (
 */
 export const checkVerificationStatus = async (
     GUID: string,
-    explorerUrl: string,
-    apiKey?: string,
+    explorer: ExplorerConfig,
 ): Promise<{
     status: number;
     message: string;
 }> => {
     const params = {
-        apikey: apiKey || "",
+        apikey: explorer.API_KEY || "",
         guid: GUID,
         module: "contract",
         action: "checkverifystatus",
@@ -105,7 +100,7 @@ export const checkVerificationStatus = async (
     const formattedParams = new URLSearchParams(params).toString();
 
     try {
-        const request = await fetch(`${explorerUrl}?${formattedParams}`);
+        const request = await fetch(`${explorer.API_URL}?${formattedParams}`);
 
         const { status, result }: any = await request.json();
         if (result === "Pending in queue") {
