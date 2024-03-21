@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/catapulta-sh/catapulta-verify/compare/v1.0.5...v1.1.0) (2024-03-21)
+
+
+### Features
+
+* add celo network ([#22](https://github.com/catapulta-sh/catapulta-verify/issues/22)) ([b749a45](https://github.com/catapulta-sh/catapulta-verify/commit/b749a459b46e0fbe335ba87a291e3ead3227d5c8))
+* multi verification ([#25](https://github.com/catapulta-sh/catapulta-verify/issues/25)) ([7ea3d13](https://github.com/catapulta-sh/catapulta-verify/commit/7ea3d13faedaf7c9affb0bc24e665ef991651e39))
+
+
+### Bug Fixes
+
+* remove force ([#24](https://github.com/catapulta-sh/catapulta-verify/issues/24)) ([4ca53ba](https://github.com/catapulta-sh/catapulta-verify/commit/4ca53baf6531ed50348a45de3d9d771dd760b155))
+
 ## [1.0.5](https://github.com/catapulta-sh/catapulta-verify/compare/v1.0.4...v1.0.5) (2024-02-16)
 
 
