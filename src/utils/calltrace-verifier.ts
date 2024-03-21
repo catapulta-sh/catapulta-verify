@@ -1,4 +1,4 @@
-import { ExplorerConfig } from "../config";
+import type { ExplorerConfig } from "../config";
 import { checkIfVerified, checkVerificationStatus, submitVerification, waitTillVisible } from "./explorer-api";
 import { getSettingsByArtifact } from "./foundry-ffi";
 import { delay, renderExplorerUrl } from "./misc";

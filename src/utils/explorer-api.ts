@@ -1,4 +1,4 @@
-import { ExplorerConfig, VERBOSE } from "../config";
+import { type ExplorerConfig, VERBOSE } from "../config";
 import { delay } from "./misc";
 
 export const submitVerification = async (verificationInfo: any, explorerUrl: string) => {

@@ -1,4 +1,4 @@
-import { ExplorerConfig } from "../config";
+import type { ExplorerConfig } from "../config";
 
 export function delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
