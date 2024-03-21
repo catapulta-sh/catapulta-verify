@@ -1,7 +1,6 @@
 import { execSync } from "node:child_process";
 import { existsSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
-import { ETHERSCAN_API_KEYS } from "../config.ts";
 import type { BroadcastReport, EtherscanVerification } from "../types.ts";
 import { getContractDataByArtifactAndBuildInfo, isBytecodeInArtifact, isBytecodeInBuildInfo } from "./bytecode.ts";
 import { loadJson } from "./json.ts";
@@ -47,7 +46,7 @@ export const loadBuildInfo = async (parsedRun: BroadcastReport): Promise<any[]> 
         execSync("cp .env .env.bk && sed -i.sedbak -r '/FOUNDRY_LIBRARIES/d' .env && rm .env.sedbak && sleep 1");
     }
 
-    let forgeBuildCmd = "forge build --skip test script --build-info";
+    let forgeBuildCmd = "forge build --skip test script --force --build-info";
 
     if (parsedRun?.libraries?.length) {
         forgeBuildCmd = `FOUNDRY_LIBRARIES="${parsedRun.libraries.join(",")}" ${forgeBuildCmd}`;
@@ -77,7 +76,6 @@ export const loadBuildInfo = async (parsedRun: BroadcastReport): Promise<any[]> 
 };
 
 export const getSettingsByArtifact = async (
-    chainId: number,
     artifacts: any[],
     buildInfos: any[],
     bytecodeAndParams: string,
@@ -115,7 +113,7 @@ export const getSettingsByArtifact = async (
     const rawParams = bytecodeAndParams.split(foundArtifact.bytecode.object)[1] || "";
 
     const metadata = foundArtifact.metadata;
-    settings.apikey = etherscanApiKey || ETHERSCAN_API_KEYS[chainId] || process.env.ETHERSCAN_API_KEY || "";
+    settings.apikey = etherscanApiKey || "";
     settings.module = "contract";
     settings.action = "verifysourcecode";
     settings.sourceCode = JSON.stringify(contractData.contractInfo);

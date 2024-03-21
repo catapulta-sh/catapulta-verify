@@ -1,3 +1,5 @@
+import type { ExplorerConfig } from "../config";
+
 export function delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -10,4 +12,9 @@ export function isHex(str: string) {
     }
 
     return false;
+}
+
+export function renderExplorerUrl(address: string, explorer: ExplorerConfig) {
+    if (!explorer.SITE_URL) return address;
+    return `${explorer.SITE_URL}/address/${address}`;
 }

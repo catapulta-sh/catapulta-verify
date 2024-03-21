@@ -5,7 +5,7 @@ import { exit } from "node:process";
 import chalk from "chalk";
 import "dotenv/config";
 import { args } from "./cli-args";
-import { DEFAULT_RPC_URLS, VERIFY_VERSION } from "./config";
+import { NETWORK_CONFIGS, VERIFY_VERSION } from "./config";
 import { callTraceVerifier } from "./utils/calltrace-verifier";
 import { loadArtifacts, loadBuildInfo } from "./utils/foundry-ffi";
 import { loadJson } from "./utils/json";
@@ -32,14 +32,17 @@ const main = async () => {
 
     greets();
 
-    const rpc = args.rpcUrl || DEFAULT_RPC_URLS[parsedRun.chain];
-    const chainId = await getChainId(rpc);
+    const networkConfig = NETWORK_CONFIGS[parsedRun.chain];
+    if (args.rpcUrl) networkConfig.RPC = args.rpcUrl;
+    if (args.explorerUrl) networkConfig.explorers = [{ API_URL: args.explorerUrl, API_KEY: args.etherscanApiKey }];
+
+    const chainId = await getChainId(networkConfig.RPC);
 
     try {
         console.log("Chain Id:", chainId);
         console.log();
     } catch (err) {
-        console.log("Could not connect to RPC endpoint", rpc);
+        console.log("Could not connect to RPC endpoint", networkConfig.RPC);
         process.exit(2);
     }
 
@@ -48,19 +51,13 @@ const main = async () => {
 
     console.log("\nAnalyzing deployment transactions...\n");
     for (const tx of parsedRun.transactions) {
-        const trace = await getTxInternalCalls(tx.hash, rpc);
-
-        try {
-            await callTraceVerifier(
-                trace.result,
-                chainId,
-                artifacts,
-                buildInfos,
-                args.etherscanUrl,
-                args.etherscanApiKey,
-            );
-        } catch (error) {
-            console.error("[Verification Error]", error);
+        const trace = await getTxInternalCalls(tx.hash, networkConfig.RPC);
+        for (const explorer of networkConfig.explorers) {
+            try {
+                await callTraceVerifier(trace.result, artifacts, buildInfos, explorer);
+            } catch (error) {
+                console.error("[Verification Error]", error);
+            }
         }
     }
     console.log("\n[catapulta-verify] Verification finished.");

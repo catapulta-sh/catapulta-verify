@@ -1,7 +1,7 @@
 export interface InputParams {
     broadcastPath: string;
     rpcUrl?: string;
-    etherscanUrl?: string;
+    explorerUrl?: string;
     etherscanApiKey?: string;
     help?: boolean;
 }

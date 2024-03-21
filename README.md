@@ -33,7 +33,7 @@ Below you can see all the CLI arguments and aliases:
   -r, --rpcUrl string            RPC URL to fetch transaction details, mandatory to support for
                                  debug_traceTransaction. You can use Alchemy or Quicknode providers if
                                  available.
-  -e, --etherscanUrl string      Etherscan API endpoint
+  -e, --explorerUrl string      Etherscan API endpoint
   -k, --etherscanApiKey string   Etherscan API key
 ```
 
