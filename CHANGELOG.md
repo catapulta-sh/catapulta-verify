@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/catapulta-sh/catapulta-verify/compare/v1.1.0...v1.1.1) (2024-04-05)
+
+
+### Bug Fixes
+
+* remove force ([#26](https://github.com/catapulta-sh/catapulta-verify/issues/26)) ([e27b604](https://github.com/catapulta-sh/catapulta-verify/commit/e27b604516d5d205673f88c4a588cfed04b7c315))
+
 ## [1.1.0](https://github.com/catapulta-sh/catapulta-verify/compare/v1.0.5...v1.1.0) (2024-03-21)
 
 
