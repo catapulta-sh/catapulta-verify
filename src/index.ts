@@ -32,7 +32,7 @@ const main = async () => {
 
     greets();
 
-    const networkConfig = NETWORK_CONFIGS[parsedRun.chain];
+    const networkConfig = NETWORK_CONFIGS[parsedRun.chain] || {};
     if (args.rpcUrl) networkConfig.RPC = args.rpcUrl;
     if (args.explorerUrl) networkConfig.explorers = [{ API_URL: args.explorerUrl, API_KEY: args.etherscanApiKey }];
 
