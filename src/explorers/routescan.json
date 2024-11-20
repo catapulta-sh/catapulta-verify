@@ -1,0 +1,767 @@
+[
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/1010/etherscan",
+    "explorer": "1010.routescan.io",
+    "chainId": 1010
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/56/etherscan",
+    "explorer": "56.routescan.io",
+    "chainId": 56
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/97/etherscan",
+    "explorer": "97.routescan.io",
+    "chainId": 97
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/43288/etherscan",
+    "explorer": "43288.routescan.io",
+    "chainId": 43288
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/301/etherscan",
+    "explorer": "301.routescan.io",
+    "chainId": 301
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/1294/etherscan",
+    "explorer": "1294.routescan.io",
+    "chainId": 1294
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/719/etherscan",
+    "explorer": "719.routescan.io",
+    "chainId": 719
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/7700/etherscan",
+    "explorer": "7700.routescan.io",
+    "chainId": 7700
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/169/etherscan",
+    "explorer": "169.routescan.io",
+    "chainId": 169
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/13068200/etherscan",
+    "explorer": "13068200.routescan.io",
+    "chainId": 13068200
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/999999/etherscan",
+    "explorer": "999999.routescan.io",
+    "chainId": 999999
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/debug/etherscan",
+    "explorer": "debug.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/43114/etherscan",
+    "explorer": "43114.routescan.io",
+    "chainId": 43114
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/53935/etherscan",
+    "explorer": "53935.routescan.io",
+    "chainId": 53935
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/432204/etherscan",
+    "explorer": "432204.routescan.io",
+    "chainId": 432204
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/8888/etherscan",
+    "explorer": "8888.routescan.io",
+    "chainId": 8888
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/1234/etherscan",
+    "explorer": "1234.routescan.io",
+    "chainId": 1234
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/10507/etherscan",
+    "explorer": "10507.routescan.io",
+    "chainId": 10507
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/7979/etherscan",
+    "explorer": "7979.routescan.io",
+    "chainId": 7979
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/2044/etherscan",
+    "explorer": "2044.routescan.io",
+    "chainId": 2044
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/333000333/etherscan",
+    "explorer": "333000333.routescan.io",
+    "chainId": 333000333
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/6119/etherscan",
+    "explorer": "6119.routescan.io",
+    "chainId": 6119
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/3011/etherscan",
+    "explorer": "3011.routescan.io",
+    "chainId": 3011
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/1088/etherscan",
+    "explorer": "1088.routescan.io",
+    "chainId": 1088
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/324/etherscan",
+    "explorer": "324.routescan.io",
+    "chainId": 324
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/1/etherscan",
+    "explorer": "1.routescan.io",
+    "chainId": 1
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/5000/etherscan",
+    "explorer": "5000.routescan.io",
+    "chainId": 5000
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/288/etherscan",
+    "explorer": "288.routescan.io",
+    "chainId": 288
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/14/etherscan",
+    "explorer": "14.routescan.io",
+    "chainId": 14
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/8453/etherscan",
+    "explorer": "8453.routescan.io",
+    "chainId": 8453
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/19/etherscan",
+    "explorer": "19.routescan.io",
+    "chainId": 19
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/10/etherscan",
+    "explorer": "10.routescan.io",
+    "chainId": 10
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/56288/etherscan",
+    "explorer": "56288.routescan.io",
+    "chainId": 56288
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/88888/etherscan",
+    "explorer": "88888.routescan.io",
+    "chainId": 88888
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/424/etherscan",
+    "explorer": "424.routescan.io",
+    "chainId": 424
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/7777777/etherscan",
+    "explorer": "7777777.routescan.io",
+    "chainId": 7777777
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/4337/etherscan",
+    "explorer": "4337.routescan.io",
+    "chainId": 4337
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/291/etherscan",
+    "explorer": "291.routescan.io",
+    "chainId": 291
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/34443/etherscan",
+    "explorer": "34443.routescan.io",
+    "chainId": 34443
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/81457/etherscan",
+    "explorer": "81457.routescan.io",
+    "chainId": 81457
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/62707/etherscan",
+    "explorer": "62707.routescan.io",
+    "chainId": 62707
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/70953/etherscan",
+    "explorer": "70953.routescan.io",
+    "chainId": 70953
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/7887/etherscan",
+    "explorer": "7887.routescan.io",
+    "chainId": 7887
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/7560/etherscan",
+    "explorer": "7560.routescan.io",
+    "chainId": 7560
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/252/etherscan",
+    "explorer": "252.routescan.io",
+    "chainId": 252
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/167000/etherscan",
+    "explorer": "167000.routescan.io",
+    "chainId": 167000
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/185/etherscan",
+    "explorer": "185.routescan.io",
+    "chainId": 185
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/8008/etherscan",
+    "explorer": "8008.routescan.io",
+    "chainId": 8008
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/254/etherscan",
+    "explorer": "254.routescan.io",
+    "chainId": 254
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/888888888/etherscan",
+    "explorer": "888888888.routescan.io",
+    "chainId": 888888888
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/33979_2/etherscan",
+    "explorer": "33979_2.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/65536_2/etherscan",
+    "explorer": "65536_2.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/183/etherscan",
+    "explorer": "183.routescan.io",
+    "chainId": 183
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/10849/etherscan",
+    "explorer": "10849.routescan.io",
+    "chainId": 10849
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/504441/etherscan",
+    "explorer": "504441.routescan.io",
+    "chainId": 504441
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/5566/etherscan",
+    "explorer": "5566.routescan.io",
+    "chainId": 5566
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/20240603/etherscan",
+    "explorer": "20240603.routescan.io",
+    "chainId": 20240603
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/357/etherscan",
+    "explorer": "357.routescan.io",
+    "chainId": 357
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/480/etherscan",
+    "explorer": "480.routescan.io",
+    "chainId": 480
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/151/etherscan",
+    "explorer": "151.routescan.io",
+    "chainId": 151
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/1853/etherscan",
+    "explorer": "1853.routescan.io",
+    "chainId": 1853
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/710420/etherscan",
+    "explorer": "710420.routescan.io",
+    "chainId": 710420
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/42026/etherscan",
+    "explorer": "42026.routescan.io",
+    "chainId": 42026
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/303/etherscan",
+    "explorer": "303.routescan.io",
+    "chainId": 303
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/2818/etherscan",
+    "explorer": "2818.routescan.io",
+    "chainId": 2818
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/166/etherscan",
+    "explorer": "166.routescan.io",
+    "chainId": 166
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/255/etherscan",
+    "explorer": "255.routescan.io",
+    "chainId": 255
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/43113/etherscan",
+    "explorer": "43113.routescan.io",
+    "chainId": 43113
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/432201/etherscan",
+    "explorer": "432201.routescan.io",
+    "chainId": 432201
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/335/etherscan",
+    "explorer": "335.routescan.io",
+    "chainId": 335
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/9270/etherscan",
+    "explorer": "9270.routescan.io",
+    "chainId": 9270
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/3012/etherscan",
+    "explorer": "3012.routescan.io",
+    "chainId": 3012
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/3939/etherscan",
+    "explorer": "3939.routescan.io",
+    "chainId": 3939
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/16/etherscan",
+    "explorer": "16.routescan.io",
+    "chainId": 16
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/114/etherscan",
+    "explorer": "114.routescan.io",
+    "chainId": 114
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/9728/etherscan",
+    "explorer": "9728.routescan.io",
+    "chainId": 9728
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/88882/etherscan",
+    "explorer": "88882.routescan.io",
+    "chainId": 88882
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/167008/etherscan",
+    "explorer": "167008.routescan.io",
+    "chainId": 167008
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/17000/etherscan",
+    "explorer": "17000.routescan.io",
+    "chainId": 17000
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/686669576/etherscan",
+    "explorer": "686669576.routescan.io",
+    "chainId": 686669576
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/431234/etherscan",
+    "explorer": "431234.routescan.io",
+    "chainId": 431234
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/31335/etherscan",
+    "explorer": "31335.routescan.io",
+    "chainId": 31335
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/80085/etherscan",
+    "explorer": "80085.routescan.io",
+    "chainId": 80085
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/11155111/etherscan",
+    "explorer": "11155111.routescan.io",
+    "chainId": 11155111
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/168587773/etherscan",
+    "explorer": "168587773.routescan.io",
+    "chainId": 168587773
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/919/etherscan",
+    "explorer": "919.routescan.io",
+    "chainId": 919
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/80002/etherscan",
+    "explorer": "80002.routescan.io",
+    "chainId": 80002
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/4202/etherscan",
+    "explorer": "4202.routescan.io",
+    "chainId": 4202
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/4460/etherscan",
+    "explorer": "4460.routescan.io",
+    "chainId": 4460
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/999999999/etherscan",
+    "explorer": "999999999.routescan.io",
+    "chainId": 999999999
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/49321/etherscan",
+    "explorer": "49321.routescan.io",
+    "chainId": 49321
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/779672/etherscan",
+    "explorer": "779672.routescan.io",
+    "chainId": 779672
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/173750/etherscan",
+    "explorer": "173750.routescan.io",
+    "chainId": 173750
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/28882/etherscan",
+    "explorer": "28882.routescan.io",
+    "chainId": 28882
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/10880/etherscan",
+    "explorer": "10880.routescan.io",
+    "chainId": 10880
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/167009/etherscan",
+    "explorer": "167009.routescan.io",
+    "chainId": 167009
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/920637907288165/etherscan",
+    "explorer": "920637907288165.routescan.io",
+    "chainId": 920637907288165
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/749/etherscan",
+    "explorer": "749.routescan.io",
+    "chainId": 749
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/20241133/etherscan",
+    "explorer": "20241133.routescan.io",
+    "chainId": 20241133
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/80084/etherscan",
+    "explorer": "80084.routescan.io",
+    "chainId": 80084
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/2522/etherscan",
+    "explorer": "2522.routescan.io",
+    "chainId": 2522
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/233/etherscan",
+    "explorer": "233.routescan.io",
+    "chainId": 233
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/28122024/etherscan",
+    "explorer": "28122024.routescan.io",
+    "chainId": 28122024
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/84532/etherscan",
+    "explorer": "84532.routescan.io",
+    "chainId": 84532
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/11155420/etherscan",
+    "explorer": "11155420.routescan.io",
+    "chainId": 11155420
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/111557560/etherscan",
+    "explorer": "111557560.routescan.io",
+    "chainId": 111557560
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/1687/etherscan",
+    "explorer": "1687.routescan.io",
+    "chainId": 1687
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/55551/etherscan",
+    "explorer": "55551.routescan.io",
+    "chainId": 55551
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/80008/etherscan",
+    "explorer": "80008.routescan.io",
+    "chainId": 80008
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/164_4/etherscan",
+    "explorer": "164_4.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/2233/etherscan",
+    "explorer": "2233.routescan.io",
+    "chainId": 2233
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/153_2/etherscan",
+    "explorer": "153_2.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/26659/etherscan",
+    "explorer": "26659.routescan.io",
+    "chainId": 26659
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/3397901/etherscan",
+    "explorer": "3397901.routescan.io",
+    "chainId": 3397901
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/7222/etherscan",
+    "explorer": "7222.routescan.io",
+    "chainId": 7222
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/7589/etherscan",
+    "explorer": "7589.routescan.io",
+    "chainId": 7589
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/421614/etherscan",
+    "explorer": "421614.routescan.io",
+    "chainId": 421614
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/10888/etherscan",
+    "explorer": "10888.routescan.io",
+    "chainId": 10888
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/1946/etherscan",
+    "explorer": "1946.routescan.io",
+    "chainId": 1946
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/8082/etherscan",
+    "explorer": "8082.routescan.io",
+    "chainId": 8082
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/64165/etherscan",
+    "explorer": "64165.routescan.io",
+    "chainId": 64165
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/7210/etherscan",
+    "explorer": "7210.routescan.io",
+    "chainId": 7210
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/4801/etherscan",
+    "explorer": "4801.routescan.io",
+    "chainId": 4801
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/70805_2/etherscan",
+    "explorer": "70805_2.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/70800/etherscan",
+    "explorer": "70800.routescan.io",
+    "chainId": 70800
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/555666/etherscan",
+    "explorer": "555666.routescan.io",
+    "chainId": 555666
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/42069/etherscan",
+    "explorer": "42069.routescan.io",
+    "chainId": 42069
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/1301/etherscan",
+    "explorer": "1301.routescan.io",
+    "chainId": 1301
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/11124/etherscan",
+    "explorer": "11124.routescan.io",
+    "chainId": 11124
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/2358/etherscan",
+    "explorer": "2358.routescan.io",
+    "chainId": 2358
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/123456789_2/etherscan",
+    "explorer": "123456789_2.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/763373/etherscan",
+    "explorer": "763373.routescan.io",
+    "chainId": 763373
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/3636/etherscan",
+    "explorer": "3636.routescan.io",
+    "chainId": 3636
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/testnet/evm/all/etherscan",
+    "explorer": "all.routescan.io",
+    "chainId": null
+  },
+  {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/bitcoin/etherscan",
+    "explorer": "bitcoin.routescan.io",
+    "chainId": null
+  }
+]

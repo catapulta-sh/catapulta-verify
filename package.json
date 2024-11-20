@@ -39,5 +39,8 @@
         "postbuild": "bunx rexreplace '^(#!.+\\n)?' '$1import { createRequire as createImportMetaRequire } from \"module\"; import.meta.require ||= (id) => createImportMetaRequire(import.meta.url)(id);\\n' -GM out/index.mjs",
         "lint:fix": "bunx @biomejs/biome check . --apply",
         "lint": "bunx @biomejs/biome check  ."
+    },
+    "dependencies": {
+        "@bgd-labs/rpc-env": "^2.0.0"
     }
 }
