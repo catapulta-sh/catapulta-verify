@@ -57,7 +57,7 @@ export const callTraceVerifier = async (
 
     for (let i = 0; i < 30; i++) {
         await delay(1000);
-        const { status, message } = await checkVerificationStatus(guid, explorer);
+        const { status, message } = await checkVerificationStatus(guid, explorer, chainId);
 
         if (status !== 2) {
             console.log(message);

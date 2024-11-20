@@ -18,4 +18,22 @@ async function getRoutescan() {
     writeFileSync("src/explorers/routescan.json", JSON.stringify(formatted, null, 2));
 }
 
+type EtherscanResponse = {
+    result: {
+        blockexplorer: string;
+        chainid: string;
+    }[];
+};
+async function getEtherscan() {
+    const result = await fetch("https://api.etherscan.io/v2/chainlist");
+    const data = (await result.json()) as EtherscanResponse;
+    const formatted = data.result.map((d) => ({
+        api: "https://api.etherscan.io/v2/api",
+        explorer: d.blockexplorer,
+        chainId: Number(d.chainid),
+    }));
+    writeFileSync("src/explorers/etherscan.json", JSON.stringify(formatted, null, 2));
+}
+
 getRoutescan();
+getEtherscan();
