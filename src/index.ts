@@ -7,6 +7,7 @@ import chalk from "chalk";
 import "dotenv/config";
 import { args } from "./cli-args";
 import { NETWORK_CONFIGS, VERIFY_VERSION } from "./config";
+import { getEtherscan } from "./explorers/etherscan";
 import { getRouteScan } from "./explorers/routescan";
 import { callTraceVerifier } from "./utils/calltrace-verifier";
 import { loadArtifacts, loadBuildInfo } from "./utils/foundry-ffi";
@@ -44,6 +45,8 @@ const main = async () => {
     if (args.explorerUrl) networkConfig.explorers = [{ API_URL: args.explorerUrl, API_KEY: args.etherscanApiKey }];
     const routescan = getRouteScan(parsedRun.chain);
     if (routescan) networkConfig.explorers.push(routescan);
+    const etherscan = getEtherscan(parsedRun.chain);
+    if (etherscan) networkConfig.explorers.push(etherscan);
 
     const chainId = await getChainId(networkConfig.RPC);
 
