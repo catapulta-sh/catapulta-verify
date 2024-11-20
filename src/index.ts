@@ -66,7 +66,7 @@ const main = async () => {
         const trace = await getTxInternalCalls(tx.hash, networkConfig.RPC);
         for (const explorer of networkConfig.explorers) {
             try {
-                await callTraceVerifier(trace.result, artifacts, buildInfos, explorer);
+                await callTraceVerifier(trace.result, artifacts, buildInfos, explorer, parsedRun.chain);
             } catch (error) {
                 console.error("[Verification Error]", error);
             }

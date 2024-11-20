@@ -37,7 +37,7 @@ export interface BroadcastReport {
 
 export interface EtherscanVerification {
     apikey: string;
-    chainId: string;
+    chainid: string;
     module: string;
     action: string;
     sourceCode: string;

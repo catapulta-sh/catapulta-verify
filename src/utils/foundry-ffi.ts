@@ -115,7 +115,7 @@ export const getSettingsByArtifact = async (
 
     const metadata = foundArtifact.metadata;
     settings.apikey = etherscanApiKey || "";
-    settings.chainId = chainId;
+    settings.chainid = chainId;
     settings.module = "contract";
     settings.action = "verifysourcecode";
     settings.sourceCode = JSON.stringify(contractData.contractInfo);

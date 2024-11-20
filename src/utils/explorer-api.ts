@@ -20,7 +20,7 @@ export const submitVerification = async (verificationInfo: any, explorerUrl: str
 export const checkIfVerified = async (deploymentAddress: string, explorer: ExplorerConfig, chainId: number) => {
     const params = {
         apikey: explorer.API_KEY || "",
-        chainId: String(chainId),
+        chainid: String(chainId),
         address: deploymentAddress,
         module: "contract",
         action: "getabi",
@@ -46,7 +46,7 @@ export const checkIfVerified = async (deploymentAddress: string, explorer: Explo
 export const checkIfVisible = async (deploymentAddress: string, explorer: ExplorerConfig, chainId: number) => {
     const params = {
         apikey: explorer.API_KEY || "",
-        chainId: String(chainId),
+        chainid: String(chainId),
         contractaddresses: deploymentAddress,
         module: "contract",
         action: "getcontractcreation",
