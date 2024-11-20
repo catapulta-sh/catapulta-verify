@@ -6,7 +6,7 @@ import { getRPCUrl } from "@bgd-labs/rpc-env";
 import chalk from "chalk";
 import "dotenv/config";
 import { args } from "./cli-args";
-import { NETWORK_CONFIGS, VERIFY_VERSION } from "./config";
+import { EXPLORER_CONFIGS, VERIFY_VERSION } from "./config";
 import { getEtherscan } from "./explorers/etherscan";
 import { getRouteScan } from "./explorers/routescan";
 import { callTraceVerifier } from "./utils/calltrace-verifier";
@@ -35,38 +35,33 @@ const main = async () => {
 
   greets();
 
-  const networkConfig = NETWORK_CONFIGS[parsedRun.chain] || { explorers: [] };
+  const networkConfig = EXPLORER_CONFIGS[parsedRun.chain] || [];
+  let rpc = "";
   if (args.rpcUrl) {
-    networkConfig.RPC = args.rpcUrl;
+    rpc = args.rpcUrl;
   } else {
-    networkConfig.RPC = getRPCUrl(parsedRun.chain, process.env.ALCHEMY_API_KEY);
+    rpc = getRPCUrl(parsedRun.chain, process.env.ALCHEMY_API_KEY);
   }
 
-  if (args.explorerUrl) networkConfig.explorers = [{ API_URL: args.explorerUrl, API_KEY: args.etherscanApiKey }];
+  if (args.explorerUrl)
+    networkConfig.push({
+      API_URL: args.explorerUrl,
+      API_KEY: args.etherscanApiKey,
+    });
   const routescan = getRouteScan(parsedRun.chain);
-  if (routescan) networkConfig.explorers.push(routescan);
+  if (routescan) networkConfig.push(routescan);
   const etherscan = getEtherscan(parsedRun.chain);
-  if (etherscan) networkConfig.explorers.push(etherscan);
-
-  const chainId = await getChainId(networkConfig.RPC);
-
-  try {
-    console.log("Chain Id:", chainId);
-    console.log();
-  } catch (err) {
-    console.log("Could not connect to RPC endpoint", networkConfig.RPC);
-    process.exit(2);
-  }
+  if (etherscan) networkConfig.push(etherscan);
 
   const buildInfos = await loadBuildInfo(parsedRun);
   const artifacts = await loadArtifacts();
 
   console.log("\nAnalyzing deployment transactions...\n");
   for (const tx of parsedRun.transactions) {
-    const trace = await getTxInternalCalls(tx.hash, networkConfig.RPC);
-    for (const explorer of networkConfig.explorers) {
+    const trace = await getTxInternalCalls(tx.hash, rpc);
+    for (const explorer of networkConfig) {
       try {
-        await callTraceVerifier(trace.result, artifacts, buildInfos, explorer, parsedRun.chain);
+        await callTraceVerifier(trace.result, artifacts, buildInfos, parsedRun.chain, explorer);
       } catch (error) {
         console.error("[Verification Error]", error);
       }

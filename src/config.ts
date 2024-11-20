@@ -12,7 +12,7 @@ export type ExplorerConfig = {
 };
 
 // custom explorer configs
-export const NETWORK_CONFIGS: Record<string, ExplorerConfig[]> = {
+export const EXPLORER_CONFIGS: Record<string, ExplorerConfig[]> = {
   [Networks.metis]: [
     {
       API_URL: "https://andromeda-explorer.metis.io/api ",
