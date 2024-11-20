@@ -34,7 +34,7 @@ const main = async () => {
 
     greets();
 
-    const networkConfig = NETWORK_CONFIGS[parsedRun.chain] || {};
+    const networkConfig = NETWORK_CONFIGS[parsedRun.chain] || { explorers: [] };
     if (args.rpcUrl) {
         networkConfig.RPC = args.rpcUrl;
     } else {
