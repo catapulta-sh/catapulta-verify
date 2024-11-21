@@ -1,0 +1,257 @@
+[
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://etherscan.io",
+    "chainId": 1
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia.etherscan.io",
+    "chainId": 11155111
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia.etherscan.io",
+    "chainId": 17000
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://bscscan.com",
+    "chainId": 56
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://testnet.bscscan.com",
+    "chainId": 97
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://polygonscan.com",
+    "chainId": 137
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://amoy.polygonscan.com/",
+    "chainId": 80002
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://zkevm.polygonscan.com/",
+    "chainId": 1101
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://cardona-zkevm.polygonscan.com/",
+    "chainId": 2442
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://basescan.org",
+    "chainId": 8453
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia.basescan.org/",
+    "chainId": 84532
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://arbiscan.io",
+    "chainId": 42161
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://nova.arbiscan.io/",
+    "chainId": 42170
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia.arbiscan.io/",
+    "chainId": 421614
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://lineascan.build/",
+    "chainId": 59144
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia.lineascan.build/",
+    "chainId": 59141
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://ftmscan.com",
+    "chainId": 250
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://testnet.ftmscan.com/",
+    "chainId": 4002
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://blastscan.io/",
+    "chainId": 81457
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia.blastscan.io/",
+    "chainId": 168587773
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://optimistic.etherscan.io/",
+    "chainId": 10
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia-optimism.etherscan.io/",
+    "chainId": 11155420
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://snowscan.xyz/",
+    "chainId": 43114
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://testnet.snowscan.xyz/",
+    "chainId": 43113
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://bttcscan.com/",
+    "chainId": 199
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://testnet.bttcscan.com/",
+    "chainId": 1028
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://celoscan.io",
+    "chainId": 42220
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://alfajores.celoscan.io/",
+    "chainId": 44787
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://cronoscan.com",
+    "chainId": 25
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://fraxscan.com/",
+    "chainId": 252
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://holesky.fraxscan.com/",
+    "chainId": 2522
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://gnosisscan.io/",
+    "chainId": 100
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://kromascan.com/",
+    "chainId": 255
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia.kromascan.com/",
+    "chainId": 2358
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://mantlescan.xyz/",
+    "chainId": 5000
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia.mantlescan.xyz/",
+    "chainId": 5003
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://moonbeam.moonscan.io/",
+    "chainId": 1284
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://moonriver.moonscan.io/",
+    "chainId": 1285
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://moonbase.moonscan.io/",
+    "chainId": 1287
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://opbnb.bscscan.com/",
+    "chainId": 204
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://opbnb-testnet.bscscan.com/",
+    "chainId": 5611
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://scrollscan.com/",
+    "chainId": 534352
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia.scrollscan.com/",
+    "chainId": 534351
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://taikoscan.io/",
+    "chainId": 167000
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://hekla.taikoscan.io/",
+    "chainId": 167009
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://wemixscan.com/",
+    "chainId": 1111
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://testnet.wemixscan.com/",
+    "chainId": 1112
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://era.zksync.network/",
+    "chainId": 324
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia-era.zksync.network/",
+    "chainId": 300
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://xaiscan.io/",
+    "chainId": 660279
+  },
+  {
+    "api": "https://api.etherscan.io/v2/api",
+    "explorer": "https://sepolia.xaiscan.io/",
+    "chainId": 37714555429
+  }
+]
