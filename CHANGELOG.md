@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/catapulta-sh/catapulta-verify/compare/v1.2.0...v1.2.1) (2024-11-21)
+
+
+### Bug Fixes
+
+* lint package.json ([f879783](https://github.com/catapulta-sh/catapulta-verify/commit/f87978316872eecea061fa6c77123aaa36bf4a71))
+
 ## [1.2.0](https://github.com/catapulta-sh/catapulta-verify/compare/v1.1.1...v1.2.0) (2024-11-21)
 
 
