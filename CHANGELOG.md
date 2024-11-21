@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/catapulta-sh/catapulta-verify/compare/v1.1.1...v1.2.0) (2024-11-21)
+
+
+### Features
+
+* simplified config ([#30](https://github.com/catapulta-sh/catapulta-verify/issues/30)) ([fd21158](https://github.com/catapulta-sh/catapulta-verify/commit/fd2115889fb3c5da0fd2493c68dbf3fc04005a43))
+
 ## [1.1.1](https://github.com/catapulta-sh/catapulta-verify/compare/v1.1.0...v1.1.1) (2024-04-05)
 
 
