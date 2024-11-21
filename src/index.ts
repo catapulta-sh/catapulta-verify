@@ -60,6 +60,7 @@ const main = async () => {
   for (const tx of parsedRun.transactions) {
     const trace = await getTxInternalCalls(tx.hash, rpc);
     for (const explorer of networkConfig) {
+      console.log(explorer);
       try {
         await callTraceVerifier(trace.result, artifacts, buildInfos, parsedRun.chain, explorer);
       } catch (error) {

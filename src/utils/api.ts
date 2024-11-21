@@ -1,4 +1,4 @@
-import { ExplorerConfig } from "../config";
+import type { ExplorerConfig } from "../config";
 
 export async function checkVerificationStatus(chainId: number, explorer: ExplorerConfig, guid: string) {
   const params = {

@@ -1,4 +1,4 @@
-import { type ExplorerConfig } from "../config";
+import type { ExplorerConfig } from "../config";
 import { checkIfVisible } from "./api";
 import { delay } from "./misc";
 
