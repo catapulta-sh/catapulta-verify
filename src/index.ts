@@ -23,13 +23,17 @@ const main = async () => {
   if (!broadcastPath) {
   }
   if (!existsSync(broadcastPath)) {
-    console.log(`Broadcast report not found at path ${broadcastPath}. Exiting.`);
+    console.log(
+      `Broadcast report not found at path ${broadcastPath}. Exiting.`,
+    );
     process.exit(404);
   }
   const parsedRun = await loadJson(broadcastPath);
 
   if (parsedRun.transactions.length === 0) {
-    console.log(`No transactions found in the broadcast path provided: ${broadcastPath}`);
+    console.log(
+      `No transactions found in the broadcast path provided: ${broadcastPath}`,
+    );
     process.exit(1);
   }
 
@@ -59,14 +63,22 @@ const main = async () => {
   console.log("\nAnalyzing deployment transactions...\n");
   for (const tx of parsedRun.transactions) {
     const trace = await getTxInternalCalls(tx.hash, rpc);
-    for (const explorer of networkConfig) {
-      console.log(explorer);
-      try {
-        await callTraceVerifier(trace.result, artifacts, buildInfos, parsedRun.chain, explorer);
-      } catch (error) {
-        console.error("[Verification Error]", error);
-      }
-    }
+    await Promise.allSettled(
+      networkConfig.map(async (explorer) => {
+        console.log(explorer);
+        try {
+          await callTraceVerifier(
+            trace.result,
+            artifacts,
+            buildInfos,
+            parsedRun.chain,
+            explorer,
+          );
+        } catch (error) {
+          console.error("[Verification Error]", error);
+        }
+      }),
+    );
   }
   console.log("\n[catapulta-verify] Verification finished.");
   console.log(
