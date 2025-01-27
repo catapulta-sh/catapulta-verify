@@ -23,17 +23,13 @@ const main = async () => {
   if (!broadcastPath) {
   }
   if (!existsSync(broadcastPath)) {
-    console.log(
-      `Broadcast report not found at path ${broadcastPath}. Exiting.`,
-    );
+    console.log(`Broadcast report not found at path ${broadcastPath}. Exiting.`);
     process.exit(404);
   }
   const parsedRun = await loadJson(broadcastPath);
 
   if (parsedRun.transactions.length === 0) {
-    console.log(
-      `No transactions found in the broadcast path provided: ${broadcastPath}`,
-    );
+    console.log(`No transactions found in the broadcast path provided: ${broadcastPath}`);
     process.exit(1);
   }
 
@@ -67,13 +63,7 @@ const main = async () => {
       networkConfig.map(async (explorer) => {
         console.log(explorer);
         try {
-          await callTraceVerifier(
-            trace.result,
-            artifacts,
-            buildInfos,
-            parsedRun.chain,
-            explorer,
-          );
+          await callTraceVerifier(trace.result, artifacts, buildInfos, parsedRun.chain, explorer);
         } catch (error) {
           console.error("[Verification Error]", error);
         }
