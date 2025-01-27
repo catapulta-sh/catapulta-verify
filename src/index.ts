@@ -59,14 +59,16 @@ const main = async () => {
   console.log("\nAnalyzing deployment transactions...\n");
   for (const tx of parsedRun.transactions) {
     const trace = await getTxInternalCalls(tx.hash, rpc);
-    for (const explorer of networkConfig) {
-      console.log(explorer);
-      try {
-        await callTraceVerifier(trace.result, artifacts, buildInfos, parsedRun.chain, explorer);
-      } catch (error) {
-        console.error("[Verification Error]", error);
-      }
-    }
+    await Promise.allSettled(
+      networkConfig.map(async (explorer) => {
+        console.log(explorer);
+        try {
+          await callTraceVerifier(trace.result, artifacts, buildInfos, parsedRun.chain, explorer);
+        } catch (error) {
+          console.error("[Verification Error]", error);
+        }
+      }),
+    );
   }
   console.log("\n[catapulta-verify] Verification finished.");
   console.log(
