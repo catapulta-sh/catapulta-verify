@@ -1,5 +1,9 @@
 import type { ExplorerConfig } from "../config";
-import { checkIfVerified, checkVerificationStatus, submitVerification } from "./api";
+import {
+  checkIfVerified,
+  checkVerificationStatus,
+  submitVerification,
+} from "./api";
 import { waitTillVisible } from "./explorer-api";
 import { getSettingsByArtifact } from "./foundry-ffi";
 import { delay, renderExplorerUrl } from "./misc";
@@ -24,12 +28,12 @@ export const callTraceVerifier = async (
 
   await waitTillVisible(chainId, explorer, call.to);
 
-  const verified = await checkIfVerified(chainId, explorer, call.to);
+  // const verified = await checkIfVerified(chainId, explorer, call.to);
 
-  if (verified) {
-    console.log(`(${renderExplorerUrl(call.to, explorer)}) is already verified, skipping.`);
-    return;
-  }
+  // if (verified) {
+  //   console.log(`(${renderExplorerUrl(call.to, explorer)}) is already verified, skipping.`);
+  //   return;
+  // }
 
   // if the tx has subdeployments get the deployed bytecode from the last deployment in order to
   // compare the bytecode and deployed bytecode strings, resulting in the constructor params
@@ -47,18 +51,31 @@ export const callTraceVerifier = async (
     return;
   }
 
-  const { result: guid, message, status }: any = await submitVerification(chainId, explorer, verificationReq);
+  const {
+    result: guid,
+    message,
+    status,
+  }: any = await submitVerification(chainId, explorer, verificationReq);
 
   if (!status || guid.includes("Max rate limit reached")) {
-    console.log(`Couldn't verify ${renderExplorerUrl(call.to, explorer)} `, guid);
+    console.log(
+      `Couldn't verify ${renderExplorerUrl(call.to, explorer)} `,
+      guid,
+    );
     return;
   }
 
-  console.log(`Verifying contract ${renderExplorerUrl(call.to, explorer)}, with guid: ${guid}`);
+  console.log(
+    `Verifying contract ${renderExplorerUrl(call.to, explorer)}, with guid: ${guid}`,
+  );
 
   for (let i = 0; i < 30; i++) {
     await delay(1000);
-    const { status, message } = await checkVerificationStatus(chainId, explorer, guid);
+    const { status, message } = await checkVerificationStatus(
+      chainId,
+      explorer,
+      guid,
+    );
 
     if (status !== 2) {
       console.log(message);
