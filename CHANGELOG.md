@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/catapulta-sh/catapulta-verify/compare/v1.4.0...v1.4.1) (2025-03-25)
+
+
+### Miscellaneous Chores
+
+* release 1.4.1 ([ab3060f](https://github.com/catapulta-sh/catapulta-verify/commit/ab3060fd33e11686648e125b79fa996f535b7fe0))
+
 ## [1.4.0](https://github.com/catapulta-sh/catapulta-verify/compare/v1.3.0...v1.4.0) (2025-03-25)
 
 
