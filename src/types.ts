@@ -71,4 +71,5 @@ export enum Networks {
   scroll = 534352,
   zkevm = 1101,
   celo = 42220,
+  ink = 57073,
 }
