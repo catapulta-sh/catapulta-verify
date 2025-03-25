@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/catapulta-sh/catapulta-verify/compare/v1.3.0...v1.4.0) (2025-03-25)
+
+
+### Features
+
+* add Ink network to routescan ([#37](https://github.com/catapulta-sh/catapulta-verify/issues/37)) ([39dbcf6](https://github.com/catapulta-sh/catapulta-verify/commit/39dbcf6af225a953f60dc9673bb70435ccc6d192))
+
 ## [1.3.0](https://github.com/catapulta-sh/catapulta-verify/compare/v1.2.1...v1.3.0) (2025-01-27)
 
 
