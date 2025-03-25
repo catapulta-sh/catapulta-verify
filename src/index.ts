@@ -2,7 +2,7 @@
 
 import { existsSync } from "node:fs";
 import { exit } from "node:process";
-import { getRPCUrl } from "@bgd-labs/rpc-env";
+import { getRPCUrl } from "@bgd-labs/toolbox";
 import chalk from "chalk";
 import "dotenv/config";
 import { args } from "./cli-args";
@@ -12,7 +12,7 @@ import { getRouteScan } from "./explorers/routescan";
 import { callTraceVerifier } from "./utils/calltrace-verifier";
 import { loadArtifacts, loadBuildInfo } from "./utils/foundry-ffi";
 import { loadJson } from "./utils/json";
-import { getChainId, getTxInternalCalls } from "./utils/rpc";
+import { getTxInternalCalls } from "./utils/rpc";
 
 // prevent dotenv env to affect child_process.execSync environment
 delete process.env.FOUNDRY_LIBRARIES;
@@ -23,13 +23,17 @@ const main = async () => {
   if (!broadcastPath) {
   }
   if (!existsSync(broadcastPath)) {
-    console.log(`Broadcast report not found at path ${broadcastPath}. Exiting.`);
+    console.log(
+      `Broadcast report not found at path ${broadcastPath}. Exiting.`,
+    );
     process.exit(404);
   }
   const parsedRun = await loadJson(broadcastPath);
 
   if (parsedRun.transactions.length === 0) {
-    console.log(`No transactions found in the broadcast path provided: ${broadcastPath}`);
+    console.log(
+      `No transactions found in the broadcast path provided: ${broadcastPath}`,
+    );
     process.exit(1);
   }
 
@@ -40,7 +44,11 @@ const main = async () => {
   if (args.rpcUrl) {
     rpc = args.rpcUrl;
   } else {
-    rpc = getRPCUrl(parsedRun.chain, process.env.ALCHEMY_API_KEY);
+    rpc = getRPCUrl(parsedRun.chain, {
+      alchemyKey: process.env.ALCHEMY_API_KEY,
+      quicknodeToken: process.env.QUICKNODE_TOKEN,
+      quicknodeEndpointName: process.env.QUICKNODE_ENDPOINT_NAME,
+    });
   }
 
   if (args.explorerUrl)
@@ -63,7 +71,13 @@ const main = async () => {
       networkConfig.map(async (explorer) => {
         console.log(explorer);
         try {
-          await callTraceVerifier(trace.result, artifacts, buildInfos, parsedRun.chain, explorer);
+          await callTraceVerifier(
+            trace.result,
+            artifacts,
+            buildInfos,
+            parsedRun.chain,
+            explorer,
+          );
         } catch (error) {
           console.error("[Verification Error]", error);
         }
