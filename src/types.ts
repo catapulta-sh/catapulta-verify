@@ -53,23 +53,3 @@ export interface EtherscanVerification {
   libraryname?: string;
   libraryaddress?: string;
 }
-
-export enum Networks {
-  polygon = 137,
-  main = 1,
-  arbitrum = 42161,
-  avalanche = 43114,
-  avalancheFuji = 43113,
-  optimism = 10,
-  goerli = 5,
-  sepolia = 11155111,
-  bnb = 56,
-  bnbTestnet = 97,
-  base = 8453,
-  metis = 1088,
-  gnosis = 100,
-  scroll = 534352,
-  zkevm = 1101,
-  celo = 42220,
-  ink = 57073,
-}

@@ -1,4 +1,4 @@
-import { Networks } from "./types";
+import { ChainId } from "@bgd-labs/toolbox";
 
 const packageJson = require("../package.json");
 export const VERIFY_VERSION = packageJson.version;
@@ -13,7 +13,7 @@ export type ExplorerConfig = {
 
 // custom explorer configs
 export const EXPLORER_CONFIGS: Record<string, ExplorerConfig[]> = {
-  [Networks.metis]: [
+  [ChainId.metis]: [
     {
       API_URL: "https://andromeda-explorer.metis.io/api ",
       SITE_URL: "https://andromeda-explorer.metis.io",
