@@ -355,6 +355,11 @@
     "chainId": 80094
   },
   {
+    "api": "https://api.routescan.io/v2/network/mainnet/evm/57073/etherscan",
+    "explorer": "https://57073.routescan.io/",
+    "chainId": 57073
+  },
+  {
     "api": "https://api.routescan.io/v2/network/testnet/evm/43113/etherscan",
     "explorer": "43113.routescan.io",
     "chainId": 43113
@@ -828,10 +833,5 @@
     "api": "https://api.routescan.io/v2/network/mainnet/evm/bitcoin/etherscan",
     "explorer": "bitcoin.routescan.io",
     "chainId": null
-  },
-  {
-    "api": "https://api.routescan.io/v2/network/mainnet/evm/57073/etherscan",
-    "explorer": "https://57073.routescan.io/",
-    "chainId": 57073
   }
 ]
