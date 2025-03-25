@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/catapulta-sh/catapulta-verify/compare/v1.4.1...v1.4.2) (2025-03-25)
+
+
+### Bug Fixes
+
+* upgrade to toolbox ([#39](https://github.com/catapulta-sh/catapulta-verify/issues/39)) ([32ea61e](https://github.com/catapulta-sh/catapulta-verify/commit/32ea61e00516d53ecf3a9e86dba62c947fec46f7))
+
 ## [1.4.1](https://github.com/catapulta-sh/catapulta-verify/compare/v1.4.0...v1.4.1) (2025-03-25)
 
 
